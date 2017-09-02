@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:Materiality.MainDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.Background>
+            <StaticResource ResourceKey="teal darken-2"/>
+        </Grid.Background>
     </Grid>
 </Window>
