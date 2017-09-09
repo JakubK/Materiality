@@ -36,6 +36,16 @@ namespace Materiality.WPF.Layouts
         {
             return (int)element.GetValue(SColumnProperty);
         }
+
+        public static readonly DependencyProperty SOffsetProperty = DependencyProperty.RegisterAttached("SOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
+        public static void SetSOffset(UIElement element,int offset)
+        {
+            element.SetValue(SOffsetProperty, offset);
+        }
+        public static int GetSOffset(UIElement element)
+        {
+            return (int)element.GetValue(SOffsetProperty);
+        }
         #endregion
 
         #region Medium Column
@@ -47,6 +57,16 @@ namespace Materiality.WPF.Layouts
         public static int GetMColumn(UIElement element)
         {
             return (int)element.GetValue(MColumnProperty);
+        }
+
+        public static readonly DependencyProperty MOffsetProperty = DependencyProperty.RegisterAttached("MOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
+        public static void SetMOffset(UIElement element, int offset)
+        {
+            element.SetValue(MOffsetProperty, offset);
+        }
+        public static int GetMOffset(UIElement element)
+        {
+            return (int)element.GetValue(MOffsetProperty);
         }
         #endregion
 
@@ -60,6 +80,16 @@ namespace Materiality.WPF.Layouts
         {
             return (int)element.GetValue(LColumnProperty);
         }
+
+        public static readonly DependencyProperty LOffsetProperty = DependencyProperty.RegisterAttached("LOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
+        public static void SetLOffset(UIElement element, int offset)
+        {
+            element.SetValue(LOffsetProperty, offset);
+        }
+        public static int GetLOffset(UIElement element)
+        {
+            return (int)element.GetValue(LOffsetProperty);
+        }
         #endregion
 
         #region Extra-Large Column
@@ -71,6 +101,16 @@ namespace Materiality.WPF.Layouts
         public static int GetXLColumn(UIElement element)
         {
             return (int)element.GetValue(XLColumnProperty);
+        }
+
+        public static readonly DependencyProperty XLOffsetProperty = DependencyProperty.RegisterAttached("XLOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
+        public static void SetXLOffset(UIElement element, int offset)
+        {
+            element.SetValue(XLOffsetProperty, offset);
+        }
+        public static int GetXLOffset(UIElement element)
+        {
+            return (int)element.GetValue(XLOffsetProperty);
         }
         #endregion
 

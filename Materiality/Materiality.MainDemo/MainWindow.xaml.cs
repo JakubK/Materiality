@@ -25,6 +25,7 @@ namespace Materiality.MainDemo
         {
             InitializeComponent();
             this.KeyDown += MainWindow_KeyDown;
+            MessageBox.Show(demoGrid.Children.Count.ToString());
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -34,14 +35,6 @@ namespace Materiality.MainDemo
             Debug.WriteLine("COLUMNSPAN " +Grid.GetColumnSpan(btn1));
             Debug.WriteLine("ROW " + Grid.GetRow(btn1));
             Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn1));
-
-           
-
-            //Debug.WriteLine("BTN2");
-            //Debug.WriteLine("COLUMN " + Grid.GetColumn(btn2));
-            //Debug.WriteLine("COLUMNSPAN " + Grid.GetColumnSpan(btn2));
-            //Debug.WriteLine("ROW " + Grid.GetRow(btn2));
-            //Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn2));
         }
     }
 }
