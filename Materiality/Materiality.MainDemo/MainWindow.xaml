@@ -2,10 +2,10 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Materiality.MainDemo"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+        xmlns:materiality="clr-namespace:Materiality.WPF.Layouts;assembly=Materiality.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="1300">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -13,9 +13,23 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid>
-        <Grid.Background>
-            <StaticResource ResourceKey="teal darken-2"/>
-        </Grid.Background>
-    </Grid>
+        <materiality:MaterialityGrid x:Name="grid">
+            <materiality:MaterialityGrid.Background>
+                <StaticResource ResourceKey="red darken-1"/>
+            </materiality:MaterialityGrid.Background>
+        <Button x:Name="btn1" Content="0" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button x:Name="btn2" Content="1" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="2" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="3" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="4" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="5" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="6" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="7" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="8" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="9" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="10" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+        <Button Content="11" materiality:MaterialityGrid.SColumn="6" materiality:MaterialityGrid.MColumn="4" materiality:MaterialityGrid.LColumn="2" materiality:MaterialityGrid.XLColumn="1"/>
+
+
+    </materiality:MaterialityGrid>
 </Window>

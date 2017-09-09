@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,24 @@ namespace Materiality.MainDemo
         public MainWindow()
         {
             InitializeComponent();
+            this.KeyDown += MainWindow_KeyDown;
+        }
+
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            Debug.WriteLine("BTN1");
+            Debug.WriteLine("COLUMN " + Grid.GetColumn(btn1));
+            Debug.WriteLine("COLUMNSPAN " +Grid.GetColumnSpan(btn1));
+            Debug.WriteLine("ROW " + Grid.GetRow(btn1));
+            Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn1));
+
+           
+
+            //Debug.WriteLine("BTN2");
+            //Debug.WriteLine("COLUMN " + Grid.GetColumn(btn2));
+            //Debug.WriteLine("COLUMNSPAN " + Grid.GetColumnSpan(btn2));
+            //Debug.WriteLine("ROW " + Grid.GetRow(btn2));
+            //Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn2));
         }
     }
 }
