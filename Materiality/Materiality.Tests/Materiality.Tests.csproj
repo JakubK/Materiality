@@ -49,11 +49,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MaterialityGridTests.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Materiality.WPF\Materiality.WPF.csproj">
+      <Project>{90aa7da7-c843-4d9b-8996-11d7b52a260f}</Project>
+      <Name>Materiality.WPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

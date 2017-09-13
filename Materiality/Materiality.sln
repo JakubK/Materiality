@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materiality.MainDemo", "Mat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materiality.WPF", "Materiality.WPF\Materiality.WPF.csproj", "{90AA7DA7-C843-4D9B-8996-11D7B52A260F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Materiality.Tests", "Materiality.Tests\Materiality.Tests.csproj", "{F938A296-3159-486B-BF22-9CDB91BB2DD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{90AA7DA7-C843-4D9B-8996-11D7B52A260F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90AA7DA7-C843-4D9B-8996-11D7B52A260F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{90AA7DA7-C843-4D9B-8996-11D7B52A260F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{F938A296-3159-486B-BF22-9CDB91BB2DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F938A296-3159-486B-BF22-9CDB91BB2DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F938A296-3159-486B-BF22-9CDB91BB2DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F938A296-3159-486B-BF22-9CDB91BB2DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
