@@ -9,7 +9,8 @@ using System.Windows.Controls;
 namespace Materiality.WPF.Layouts
 {
     /// <summary>
-    /// Fills the row.
+    /// Claims all empty space at the end of the row.
+    /// All next controls will be placed in the new row.
     /// </summary>
     public class RowFiller : Control
     {

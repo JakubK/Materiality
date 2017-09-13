@@ -25,7 +25,28 @@ namespace Materiality.MainDemo
         {
             InitializeComponent();
             this.KeyDown += MainWindow_KeyDown;
-            MessageBox.Show(demoGrid.Children.Count.ToString());
+            demoGrid.SizeChanged += DemoGrid_SizeChanged;
+        }
+
+        private void DemoGrid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (demoGrid.ActualWidth > 1200) //Extra Large
+            {
+                this.Title = "Extra Large";
+            }
+            else if (demoGrid.ActualWidth > 992) //Large
+            {
+                this.Title = "Large";
+            }
+            else if (demoGrid.ActualWidth > 600) //Medium
+            {
+                this.Title = "Medium";
+            }
+            else if (demoGrid.ActualWidth <= 600)  //Small
+            {
+                this.Title = "Small";
+              
+            }
         }
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
@@ -35,9 +56,6 @@ namespace Materiality.MainDemo
             Debug.WriteLine("COLUMNSPAN " +Grid.GetColumnSpan(btn1));
             Debug.WriteLine("ROW " + Grid.GetRow(btn1));
             Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn1));
-
-            MessageBox.Show(demoGrid.RowDefinitions.Count.ToString());
-
         }
     }
 }

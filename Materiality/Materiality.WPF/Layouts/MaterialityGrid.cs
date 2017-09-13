@@ -19,6 +19,12 @@ namespace Materiality.WPF.Layouts
     public class MaterialityGrid : Grid
     {
 
+        public Func<UIElement, int> GetCol;
+        public Action<UIElement, int> SetCol;
+
+        public Func<UIElement, int> GetOffset;
+        public Action<UIElement, int> SetOffset;
+
         protected const int MaxGridCount = 12;
 
         //small        s   <= 600px
@@ -116,11 +122,11 @@ namespace Materiality.WPF.Layouts
 
         public MaterialityGrid()
         {
-            this.VerticalAlignment = VerticalAlignment.Stretch;
+            this.VerticalAlignment = VerticalAlignment.Top;
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             this.ColumnDefinitions.Clear();
-
+            
             for(int i = 0;i < MaxGridCount;i++)
             {
                 this.ColumnDefinitions.Add(new ColumnDefinition());
@@ -134,174 +140,84 @@ namespace Materiality.WPF.Layouts
         {
             ReFillMaterialityGrid();
         }
-
+        
         private void MaterialityGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ReFillMaterialityGrid();
         }
 
-
-
-        //Gets the current resolution and then loops through each control
+        /// <summary>
+        /// Gets the current Grid width, and the loops through each UserControl to arrange it
+        /// </summary>
         private void ReFillMaterialityGrid()
         {
             if (ActualWidth > 1200) //Extra Large
             {
-                ArrangeExtraLargeSize();
-                return;
+                GetCol = (e) => GetXLColumn(e);
+                SetCol = (e, col) => SetXLColumn(e, col);
+
+                GetOffset = (e) => GetXLOffset(e);
+                SetOffset = (e,offset) => SetXLOffset(e,offset);
+
             }
-            if (ActualWidth > 992) //Large
+            else if (ActualWidth > 992) //Large
             {
-                ArrangeLargeSize();
-                return;
+                GetCol = (e) => GetLColumn(e);
+                SetCol = (e, col) => SetLColumn(e, col);
+
+                GetOffset = (e) => GetLOffset(e);
+                SetOffset = (e, offset) => SetLOffset(e, offset);
             }
-            if (ActualWidth > 600) //Medium
+            else if (ActualWidth > 600) //Medium
             {
-                ArrangeMediumSize();
-                return;
+                GetCol = (e) => GetMColumn(e);
+                SetCol = (e, col) => SetMColumn(e, col);
+
+                GetOffset = (e) => GetMOffset(e);
+                SetOffset = (e, offset) => SetMOffset(e, offset);
             }
-            if (ActualWidth <= 600)  //Small
+            else if (ActualWidth <= 600)  //Small
             {
-                ArrangeSmallSize();
-                return;
+                GetCol = (e) => GetSColumn(e);
+                SetCol = (e, col) => SetSColumn(e, col);
+
+                GetOffset = (e) => GetSOffset(e);
+                SetOffset = (e, offset) => SetSOffset(e, offset);
             }
+            ArrangeChildren();
+            return;
         }
 
-        private void ArrangeSmallSize()
+        private void ArrangeChildren()
         {
-            this.RowDefinitions.Clear();
-            RowDefinition rowdefinition = new RowDefinition();
-            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
             if (RowDefinitions.Count == 0)
             {
                 this.RowDefinitions.Add(new RowDefinition());
             }
-            int RemainingSpacePerCurrentRow = 12;
-            int startCol = 0;
-            int row = 0; //Current row
+            int RemainingSpacePerCurrentRow = MaxGridCount;
+            int startCol = 0; //Current column in a loop
+            int row = 0; //Current row in a loop
             for (int i = 0; i < this.Children.Count; i++)//Call for each existing UIElement in MaterialityGrid
             {
                 UIElement element = this.Children[i];
-                if (GetSColumn(element) > RemainingSpacePerCurrentRow) //Calculate if Control can fit the current row
+                if (GetCol(element) + GetOffset(element) > RemainingSpacePerCurrentRow) //Calculate if Control with it's offset can fit the current row
                 {
-                    SetSColumn(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size
+                    SetOffset(element, 0);
+                    SetCol(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size, and set offset to 0
                 }
-                Grid.SetColumn(element, startCol);
-                Grid.SetColumnSpan(element, GetSColumn(element));
+                Grid.SetColumn(element, startCol + GetOffset(element));
+                Grid.SetColumnSpan(element, GetCol(element));
                 Grid.SetRow(element, row);
-                startCol += GetSColumn(element);
-                RemainingSpacePerCurrentRow -= GetSColumn(element);
+                startCol += GetCol(element) + GetOffset(element);
+                RemainingSpacePerCurrentRow -= (GetCol(element) + GetOffset(element));
                 if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
                 {
-                    this.RowDefinitions.Add(rowdefinition);
+                    this.RowDefinitions.Add(new RowDefinition());
                     startCol = 0;
                     row++;
-                    RemainingSpacePerCurrentRow = 12;
+                    RemainingSpacePerCurrentRow = MaxGridCount;
                 }
             }
-        }
-
-        private void ArrangeMediumSize()
-        {
-            this.RowDefinitions.Clear();
-            RowDefinition rowdefinition = new RowDefinition();
-            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
-            if (RowDefinitions.Count == 0)
-            {
-                this.RowDefinitions.Add(new RowDefinition());
-            }
-            int RemainingSpacePerCurrentRow = 12;
-            int startCol = 0;
-            int row = 0; //Current row
-            for (int i = 0; i < this.Children.Count; i++)//Call for each existing UIElement in MaterialityGrid
-            {
-                UIElement element = this.Children[i];
-                if (GetMColumn(element) > RemainingSpacePerCurrentRow) //Calculate if Control can fit the current row
-                {
-                    SetMColumn(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size
-                }
-                Grid.SetColumn(element, startCol);
-                Grid.SetColumnSpan(element, GetMColumn(element));
-                Grid.SetRow(element, row);
-                startCol += GetMColumn(element);
-                RemainingSpacePerCurrentRow -= GetMColumn(element);
-                if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
-                {
-                    this.RowDefinitions.Add(rowdefinition);
-                    startCol = 0;
-                    row++;
-                    RemainingSpacePerCurrentRow = 12;
-                }
-            }
-        }
-
-        private void ArrangeLargeSize()
-        {
-            this.RowDefinitions.Clear();
-            RowDefinition rowdefinition = new RowDefinition();
-            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
-            if (RowDefinitions.Count == 0)
-            {
-                this.RowDefinitions.Add(new RowDefinition());
-            }
-            int RemainingSpacePerCurrentRow = 12;
-            int startCol = 0;
-            int row = 0; //Current row
-            for (int i = 0; i < this.Children.Count; i++)//Call for each existing UIElement in MaterialityGrid
-            {
-                UIElement element = this.Children[i];
-                if (GetLColumn(element) > RemainingSpacePerCurrentRow) //Calculate if Control can fit the current row
-                {
-                    SetLColumn(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size
-                }
-                Grid.SetColumn(element, startCol);
-                Grid.SetColumnSpan(element, GetLColumn(element));
-                Grid.SetRow(element, row);
-                startCol += GetLColumn(element);
-                RemainingSpacePerCurrentRow -= GetLColumn(element);
-
-                if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
-                {
-                    this.RowDefinitions.Add(rowdefinition);
-                    startCol = 0;
-                    row++;
-                    RemainingSpacePerCurrentRow = 12;
-                }
-            }
-        }
-
-        private void ArrangeExtraLargeSize()
-        {
-            this.RowDefinitions.Clear();
-            RowDefinition rowdefinition = new RowDefinition();
-            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
-            if (RowDefinitions.Count == 0)
-            {
-                this.RowDefinitions.Add(new RowDefinition());
-            }
-            int RemainingSpacePerCurrentRow = 12;
-            int startCol = 0;
-            int row = 0; //Current row
-            for(int i = 0;i < this.Children.Count;i++)//Call for each existing UIElement in MaterialityGrid
-            {
-                UIElement element = this.Children[i];
-                if (GetXLColumn(element) > RemainingSpacePerCurrentRow) //Calculate if Control can fit the current row
-                {
-                    SetXLColumn(element,RemainingSpacePerCurrentRow); //if not, change the desired size to available size
-                }
-                Grid.SetColumn(element, startCol);
-                Grid.SetColumnSpan(element, GetXLColumn(element));
-                Grid.SetRow(element, row);
-                startCol += GetXLColumn(element);
-                RemainingSpacePerCurrentRow -= GetXLColumn(element);
-                if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
-                {            
-                    this.RowDefinitions.Add(rowdefinition);
-                    startCol = 0;
-                    row++;
-                    RemainingSpacePerCurrentRow = 12;
-                }
-            }
-        }
+        } 
     }
 }
