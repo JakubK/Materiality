@@ -170,6 +170,12 @@ namespace Materiality.WPF.Layouts
         private void ArrangeSmallSize()
         {
             this.RowDefinitions.Clear();
+            RowDefinition rowdefinition = new RowDefinition();
+            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
+            if (RowDefinitions.Count == 0)
+            {
+                this.RowDefinitions.Add(new RowDefinition());
+            }
             int RemainingSpacePerCurrentRow = 12;
             int startCol = 0;
             int row = 0; //Current row
@@ -187,8 +193,6 @@ namespace Materiality.WPF.Layouts
                 RemainingSpacePerCurrentRow -= GetSColumn(element);
                 if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
                 {
-                    RowDefinition rowdefinition = new RowDefinition();
-                    rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
                     this.RowDefinitions.Add(rowdefinition);
                     startCol = 0;
                     row++;
@@ -200,6 +204,12 @@ namespace Materiality.WPF.Layouts
         private void ArrangeMediumSize()
         {
             this.RowDefinitions.Clear();
+            RowDefinition rowdefinition = new RowDefinition();
+            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
+            if (RowDefinitions.Count == 0)
+            {
+                this.RowDefinitions.Add(new RowDefinition());
+            }
             int RemainingSpacePerCurrentRow = 12;
             int startCol = 0;
             int row = 0; //Current row
@@ -217,8 +227,6 @@ namespace Materiality.WPF.Layouts
                 RemainingSpacePerCurrentRow -= GetMColumn(element);
                 if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
                 {
-                    RowDefinition rowdefinition = new RowDefinition();
-                    rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
                     this.RowDefinitions.Add(rowdefinition);
                     startCol = 0;
                     row++;
@@ -230,6 +238,12 @@ namespace Materiality.WPF.Layouts
         private void ArrangeLargeSize()
         {
             this.RowDefinitions.Clear();
+            RowDefinition rowdefinition = new RowDefinition();
+            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
+            if (RowDefinitions.Count == 0)
+            {
+                this.RowDefinitions.Add(new RowDefinition());
+            }
             int RemainingSpacePerCurrentRow = 12;
             int startCol = 0;
             int row = 0; //Current row
@@ -245,10 +259,9 @@ namespace Materiality.WPF.Layouts
                 Grid.SetRow(element, row);
                 startCol += GetLColumn(element);
                 RemainingSpacePerCurrentRow -= GetLColumn(element);
+
                 if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
                 {
-                    RowDefinition rowdefinition = new RowDefinition();
-                    rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
                     this.RowDefinitions.Add(rowdefinition);
                     startCol = 0;
                     row++;
@@ -260,6 +273,12 @@ namespace Materiality.WPF.Layouts
         private void ArrangeExtraLargeSize()
         {
             this.RowDefinitions.Clear();
+            RowDefinition rowdefinition = new RowDefinition();
+            rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
+            if (RowDefinitions.Count == 0)
+            {
+                this.RowDefinitions.Add(new RowDefinition());
+            }
             int RemainingSpacePerCurrentRow = 12;
             int startCol = 0;
             int row = 0; //Current row
@@ -276,9 +295,7 @@ namespace Materiality.WPF.Layouts
                 startCol += GetXLColumn(element);
                 RemainingSpacePerCurrentRow -= GetXLColumn(element);
                 if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
-                {
-                    RowDefinition rowdefinition = new RowDefinition();
-                    rowdefinition.Height = new GridLength(1.0, GridUnitType.Star);
+                {            
                     this.RowDefinitions.Add(rowdefinition);
                     startCol = 0;
                     row++;

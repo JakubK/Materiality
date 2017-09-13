@@ -19,35 +19,15 @@
         </materiality:MaterialityGrid.Background>
         <Button x:Name="btn1" Content="1">
             <materiality:MaterialityGrid.XLColumn>12</materiality:MaterialityGrid.XLColumn>
-            <materiality:MaterialityGrid.LColumn>6</materiality:MaterialityGrid.LColumn>
-            <materiality:MaterialityGrid.MColumn>4</materiality:MaterialityGrid.MColumn>
-            <materiality:MaterialityGrid.SColumn>2</materiality:MaterialityGrid.SColumn>
+            <materiality:MaterialityGrid.LColumn>12</materiality:MaterialityGrid.LColumn>
+            <materiality:MaterialityGrid.MColumn>12</materiality:MaterialityGrid.MColumn>
+            <materiality:MaterialityGrid.SColumn>12</materiality:MaterialityGrid.SColumn>
         </Button>
         <Button Content="partial">
             <materiality:MaterialityGrid.XLColumn>2</materiality:MaterialityGrid.XLColumn>
             <materiality:MaterialityGrid.LColumn>2</materiality:MaterialityGrid.LColumn>
             <materiality:MaterialityGrid.MColumn>2</materiality:MaterialityGrid.MColumn>
             <materiality:MaterialityGrid.SColumn>2</materiality:MaterialityGrid.SColumn>
-        </Button>
-        <materiality:RowFiller/>
-        <Button x:Name="btn2" Content="2">
-            <materiality:MaterialityGrid.XLColumn>12</materiality:MaterialityGrid.XLColumn>
-            <materiality:MaterialityGrid.LColumn>12</materiality:MaterialityGrid.LColumn>
-            <materiality:MaterialityGrid.MColumn>12</materiality:MaterialityGrid.MColumn>
-            <materiality:MaterialityGrid.SColumn>12</materiality:MaterialityGrid.SColumn>
-        </Button>
-        <Button Content="partial">
-            <materiality:MaterialityGrid.XLColumn>10</materiality:MaterialityGrid.XLColumn>
-            <materiality:MaterialityGrid.LColumn>10</materiality:MaterialityGrid.LColumn>
-            <materiality:MaterialityGrid.MColumn>10</materiality:MaterialityGrid.MColumn>
-            <materiality:MaterialityGrid.SColumn>10</materiality:MaterialityGrid.SColumn>
-        </Button>
-        <materiality:RowFiller/>
-        <Button x:Name="btn3" Content="3">
-            <materiality:MaterialityGrid.XLColumn>12</materiality:MaterialityGrid.XLColumn>
-            <materiality:MaterialityGrid.LColumn>12</materiality:MaterialityGrid.LColumn>
-            <materiality:MaterialityGrid.MColumn>12</materiality:MaterialityGrid.MColumn>
-            <materiality:MaterialityGrid.SColumn>12</materiality:MaterialityGrid.SColumn>
         </Button>
     </materiality:MaterialityGrid>
 </Window>

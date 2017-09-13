@@ -35,6 +35,9 @@ namespace Materiality.MainDemo
             Debug.WriteLine("COLUMNSPAN " +Grid.GetColumnSpan(btn1));
             Debug.WriteLine("ROW " + Grid.GetRow(btn1));
             Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn1));
+
+            MessageBox.Show(demoGrid.RowDefinitions.Count.ToString());
+
         }
     }
 }
