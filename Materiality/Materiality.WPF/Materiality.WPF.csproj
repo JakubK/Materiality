@@ -60,7 +60,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\UIHelper.cs" />
     <Compile Include="Layouts\MaterialityGrid.cs" />
+    <Compile Include="Layouts\MaterialityGridChildInfo.cs" />
     <Compile Include="Layouts\RowFiller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

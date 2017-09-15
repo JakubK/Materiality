@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Materiality.WPF.Layouts;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Materiality.MainDemo
         {
             InitializeComponent();
             this.KeyDown += MainWindow_KeyDown;
-            demoGrid.SizeChanged += DemoGrid_SizeChanged;
+            demoGrid.SizeChanged += DemoGrid_SizeChanged;          
         }
 
         private void DemoGrid_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -51,11 +52,18 @@ namespace Materiality.MainDemo
 
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine("BTN1");
-            Debug.WriteLine("COLUMN " + Grid.GetColumn(btn1));
-            Debug.WriteLine("COLUMNSPAN " +Grid.GetColumnSpan(btn1));
-            Debug.WriteLine("ROW " + Grid.GetRow(btn1));
-            Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn1));
+            //Debug.WriteLine("BTN1");
+            //Debug.WriteLine("COLUMN " + Grid.GetColumn(btn1));
+            //Debug.WriteLine("COLUMNSPAN " +Grid.GetColumnSpan(btn1));
+            //Debug.WriteLine("ROW " + Grid.GetRow(btn1));
+            //Debug.WriteLine("ROWSPAN " + Grid.GetRowSpan(btn1));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Opens Hardcoded Window
+            MainWindow copy = new MainWindow();
+            copy.Show();
         }
     }
 }

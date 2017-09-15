@@ -18,23 +18,18 @@
             <materiality:MaterialityGrid.Background>
                 <StaticResource ResourceKey="red darken-1"/>
             </materiality:MaterialityGrid.Background>
-            <Button x:Name="btn1" Content="1">
-                <materiality:MaterialityGrid.XLColumn>4</materiality:MaterialityGrid.XLColumn>
-                <materiality:MaterialityGrid.XLOffset>8</materiality:MaterialityGrid.XLOffset>
-                <materiality:MaterialityGrid.LColumn>4</materiality:MaterialityGrid.LColumn>
-                <materiality:MaterialityGrid.LOffset>8</materiality:MaterialityGrid.LOffset>
-                <materiality:MaterialityGrid.MColumn>4</materiality:MaterialityGrid.MColumn>
-                <materiality:MaterialityGrid.MOffset>4</materiality:MaterialityGrid.MOffset>
-                <materiality:MaterialityGrid.SColumn>4</materiality:MaterialityGrid.SColumn>
-                <materiality:MaterialityGrid.SOffset>0</materiality:MaterialityGrid.SOffset>
-            </Button>
-            <materiality:RowFiller/>
-            <Button Content="partial">
-                <materiality:MaterialityGrid.XLColumn>2</materiality:MaterialityGrid.XLColumn>
-                <materiality:MaterialityGrid.LColumn>12</materiality:MaterialityGrid.LColumn>
-                <materiality:MaterialityGrid.MColumn>2</materiality:MaterialityGrid.MColumn>
-                <materiality:MaterialityGrid.SColumn>12</materiality:MaterialityGrid.SColumn>
-            </Button>
+            
+           
+            <Button Content="I'm a button" Height="100" x:Name="btn"/>
+            <Button Content="I'm a button" Height="100" x:Name="btn2"/>
+            <Button Content="I'm a button" Height="100" x:Name="btn3"/>
+            <Button Content="I'm a button" Height="100" x:Name="btn4"/>
+
+            <materiality:MaterialityGridChildInfo TargetName="btn" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn2" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn3" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn4" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
+
         </materiality:MaterialityGrid>
     </ScrollViewer>
 </Window>

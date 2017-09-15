@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Materiality.WPF.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -6,19 +7,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+
+
+//small        s   <= 600px
+//medium       m   > 600px
+//large        l   > 992px
+//extra large  xl  > 1200px
+
 
 namespace Materiality.WPF.Layouts
 {
-    public enum ColumnPrefix
-    {
-        Small,Medium,Large,ExtraLarge
-    }
     /// <summary>
     /// Dynamic Grid for responsive content alignment
     /// </summary>
     public class MaterialityGrid : Grid
     {
-
+        #region Fields
         public Func<UIElement, int> GetCol;
         public Action<UIElement, int> SetCol;
 
@@ -26,11 +31,9 @@ namespace Materiality.WPF.Layouts
         public Action<UIElement, int> SetOffset;
 
         protected const int MaxGridCount = 12;
+        private List<MaterialityGridChildInfo> materialityGridInfos;
 
-        //small        s   <= 600px
-        //medium       m   > 600px
-        //large        l   > 992px
-        //extra large  xl  > 1200px
+        #endregion
 
         #region Small Column
         public static readonly DependencyProperty SColumnProperty = DependencyProperty.RegisterAttached("SColumn", typeof(int), typeof(MaterialityGrid),new PropertyMetadata(1));
@@ -120,12 +123,15 @@ namespace Materiality.WPF.Layouts
         }
         #endregion
 
+        #region Constructor
         public MaterialityGrid()
         {
             this.VerticalAlignment = VerticalAlignment.Top;
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             this.ColumnDefinitions.Clear();
+            materialityGridInfos = new List<MaterialityGridChildInfo>();
+           
             
             for(int i = 0;i < MaxGridCount;i++)
             {
@@ -135,15 +141,56 @@ namespace Materiality.WPF.Layouts
             this.Loaded += MaterialityGrid_Loaded;
             ReFillMaterialityGrid();
         }
+        #endregion
 
+        #region EventHandlers
         private void MaterialityGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ReFillMaterialityGrid();
+            //Find Infos
+            Rearrange();
         }
         
         private void MaterialityGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ReFillMaterialityGrid();
+
+            Rearrange();
+        }
+        #endregion
+
+        #region Filling Logic
+        /// <summary>
+        /// For each info in children, apply Column logic for control
+        /// </summary>
+        private void Rearrange()
+        {
+            if (materialityGridInfos == null || materialityGridInfos.Count == 0)
+                ReinitializeInfo();
+
+
+            //Here find all controls by names and Apply Column logic
+            foreach (var info in materialityGridInfos)
+            {
+                FrameworkElement obj = (FrameworkElement)this.FindName(info.TargetName);
+
+                SetSColumn(obj, info.SM);
+                SetSOffset(obj, info.SM_Offset);
+
+                SetMColumn(obj, info.MD);
+                SetMOffset(obj, info.MD_Offset);
+
+                SetLColumn(obj, info.LG);
+                SetLOffset(obj, info.LG_Offset);
+
+                SetXLColumn(obj, info.XL);
+                SetXLOffset(obj, info.XL_Offset);
+            }
+        }
+
+        private void ReinitializeInfo()
+        {
+            materialityGridInfos = UIHelper.FindVisualChildren<MaterialityGridChildInfo>(this).ToList();
         }
 
         /// <summary>
@@ -153,6 +200,7 @@ namespace Materiality.WPF.Layouts
         {
             if (ActualWidth > 1200) //Extra Large
             {
+               
                 GetCol = (e) => GetXLColumn(e);
                 SetCol = (e, col) => SetXLColumn(e, col);
 
@@ -188,6 +236,17 @@ namespace Materiality.WPF.Layouts
             return;
         }
 
+        /// <summary>
+        /// Fits single UIElement to the MaterialityGrid
+        /// </summary>
+        /// <param name="element"></param>
+        private void ArrangeElement(UIElement element)
+        {
+        }
+
+        /// <summary>
+        /// Fits each UIElement to the MaterialityGrid using Column information
+        /// </summary>
         private void ArrangeChildren()
         {
             if (RowDefinitions.Count == 0)
@@ -218,6 +277,7 @@ namespace Materiality.WPF.Layouts
                     RemainingSpacePerCurrentRow = MaxGridCount;
                 }
             }
-        } 
+        }
+        #endregion
     }
 }
