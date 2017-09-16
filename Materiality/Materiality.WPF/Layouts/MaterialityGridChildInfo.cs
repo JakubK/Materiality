@@ -38,14 +38,14 @@ namespace Materiality.WPF.Layouts
             get { return (int)GetValue(SMProperty); }
             set { SetValue(SMProperty, value); }
         }
-        public static readonly DependencyProperty SMProperty = DependencyProperty.Register("SM", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty SMProperty = DependencyProperty.Register("SM", typeof(int), typeof(MaterialityGridChildInfo),new FrameworkPropertyMetadata(1));
 
         public int SM_Offset
         {
             get { return (int)GetValue(SM_OffsetProperty); }
             set { SetValue(SM_OffsetProperty, value); }
         }
-        public static readonly DependencyProperty SM_OffsetProperty = DependencyProperty.Register("SM-Offset", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty SM_OffsetProperty = DependencyProperty.Register("SM-Offset", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(0));
         #endregion
         #region Medium
         public int MD
@@ -53,14 +53,14 @@ namespace Materiality.WPF.Layouts
             get { return (int)GetValue(MDProperty); }
             set { SetValue(MDProperty, value); }
         }
-        public static readonly DependencyProperty MDProperty = DependencyProperty.Register("MD", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty MDProperty = DependencyProperty.Register("MD", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(1));
 
         public int MD_Offset
         {
             get { return (int)GetValue(MD_OffsetProperty); }
             set { SetValue(MD_OffsetProperty, value); }
         }
-        public static readonly DependencyProperty MD_OffsetProperty = DependencyProperty.Register("MD-Offset", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty MD_OffsetProperty = DependencyProperty.Register("MD-Offset", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(0));
         #endregion
         #region Large
         public int LG
@@ -68,14 +68,14 @@ namespace Materiality.WPF.Layouts
             get { return (int)GetValue(LGProperty); }
             set { SetValue(LGProperty, value); }
         }
-        public static readonly DependencyProperty LGProperty = DependencyProperty.Register("LG", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty LGProperty = DependencyProperty.Register("LG", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(1));
 
         public int LG_Offset
         {
             get { return (int)GetValue(LG_OffsetProperty); }
             set { SetValue(LG_OffsetProperty, value); }
         }
-        public static readonly DependencyProperty LG_OffsetProperty = DependencyProperty.Register("LG-Offset", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty LG_OffsetProperty = DependencyProperty.Register("LG-Offset", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(0));
         #endregion
         #region ExtraLarge
         public int XL
@@ -83,14 +83,14 @@ namespace Materiality.WPF.Layouts
             get { return (int)GetValue(XLProperty); }
             set { SetValue(XLProperty, value); }
         }
-        public static readonly DependencyProperty XLProperty = DependencyProperty.Register("XL", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty XLProperty = DependencyProperty.Register("XL", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(1));
 
         public int XL_Offset
         {
             get { return (int)GetValue(XL_OffsetProperty); }
             set { SetValue(XL_OffsetProperty, value); }
         }
-        public static readonly DependencyProperty XL_OffsetProperty = DependencyProperty.Register("XL-Offset", typeof(int), typeof(MaterialityGridChildInfo));
+        public static readonly DependencyProperty XL_OffsetProperty = DependencyProperty.Register("XL-Offset", typeof(int), typeof(MaterialityGridChildInfo), new FrameworkPropertyMetadata(0));
         #endregion
     }
 }

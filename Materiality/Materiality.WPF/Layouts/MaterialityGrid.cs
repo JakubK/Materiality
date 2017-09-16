@@ -24,103 +24,15 @@ namespace Materiality.WPF.Layouts
     public class MaterialityGrid : Grid
     {
         #region Fields
-        public Func<UIElement, int> GetCol;
-        public Action<UIElement, int> SetCol;
+        public Func<FrameworkElement, int> GetCol;
+        public Action<FrameworkElement, int> SetCol;
 
-        public Func<UIElement, int> GetOffset;
-        public Action<UIElement, int> SetOffset;
+        public Func<FrameworkElement, int> GetOffset;
+        public Action<FrameworkElement, int> SetOffset;
 
         protected const int MaxGridCount = 12;
         private List<MaterialityGridChildInfo> materialityGridInfos;
 
-        #endregion
-
-        #region Small Column
-        public static readonly DependencyProperty SColumnProperty = DependencyProperty.RegisterAttached("SColumn", typeof(int), typeof(MaterialityGrid),new PropertyMetadata(1));
-        public static void SetSColumn(UIElement element, int column)
-        {
-            element.SetValue(SColumnProperty, column);
-        }
-        public static int GetSColumn(UIElement element)
-        {
-            return (int)element.GetValue(SColumnProperty);
-        }
-
-        public static readonly DependencyProperty SOffsetProperty = DependencyProperty.RegisterAttached("SOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
-        public static void SetSOffset(UIElement element,int offset)
-        {
-            element.SetValue(SOffsetProperty, offset);
-        }
-        public static int GetSOffset(UIElement element)
-        {
-            return (int)element.GetValue(SOffsetProperty);
-        }
-        #endregion
-
-        #region Medium Column
-        public static readonly DependencyProperty MColumnProperty = DependencyProperty.RegisterAttached("MColumn", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(1));
-        public static void SetMColumn(UIElement element, int column)
-        {
-            element.SetValue(MColumnProperty, column);
-        }
-        public static int GetMColumn(UIElement element)
-        {
-            return (int)element.GetValue(MColumnProperty);
-        }
-
-        public static readonly DependencyProperty MOffsetProperty = DependencyProperty.RegisterAttached("MOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
-        public static void SetMOffset(UIElement element, int offset)
-        {
-            element.SetValue(MOffsetProperty, offset);
-        }
-        public static int GetMOffset(UIElement element)
-        {
-            return (int)element.GetValue(MOffsetProperty);
-        }
-        #endregion
-
-        #region Large Column
-        public static readonly DependencyProperty LColumnProperty = DependencyProperty.RegisterAttached("LColumn", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(1));
-        public static void SetLColumn(UIElement element, int column)
-        {
-            element.SetValue(LColumnProperty, column);
-        }
-        public static int GetLColumn(UIElement element)
-        {
-            return (int)element.GetValue(LColumnProperty);
-        }
-
-        public static readonly DependencyProperty LOffsetProperty = DependencyProperty.RegisterAttached("LOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
-        public static void SetLOffset(UIElement element, int offset)
-        {
-            element.SetValue(LOffsetProperty, offset);
-        }
-        public static int GetLOffset(UIElement element)
-        {
-            return (int)element.GetValue(LOffsetProperty);
-        }
-        #endregion
-
-        #region Extra-Large Column
-        public static readonly DependencyProperty XLColumnProperty = DependencyProperty.RegisterAttached("XLColumn", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(1));
-        public static void SetXLColumn(UIElement element, int column)
-        {
-            element.SetValue(XLColumnProperty, column);
-        }
-        public static int GetXLColumn(UIElement element)
-        {
-            return (int)element.GetValue(XLColumnProperty);
-        }
-
-        public static readonly DependencyProperty XLOffsetProperty = DependencyProperty.RegisterAttached("XLOffset", typeof(int), typeof(MaterialityGrid), new PropertyMetadata(0));
-        public static void SetXLOffset(UIElement element, int offset)
-        {
-            element.SetValue(XLOffsetProperty, offset);
-        }
-        public static int GetXLOffset(UIElement element)
-        {
-            return (int)element.GetValue(XLOffsetProperty);
-        }
         #endregion
 
         #region Constructor
@@ -139,7 +51,6 @@ namespace Materiality.WPF.Layouts
             }            
             this.SizeChanged += MaterialityGrid_SizeChanged;
             this.Loaded += MaterialityGrid_Loaded;
-            ReFillMaterialityGrid();
         }
         #endregion
 
@@ -147,47 +58,65 @@ namespace Materiality.WPF.Layouts
         private void MaterialityGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ReFillMaterialityGrid();
-            //Find Infos
-            Rearrange();
         }
         
         private void MaterialityGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             ReFillMaterialityGrid();
+        }
+        #endregion
 
-            Rearrange();
+        #region MaterialityGridChildInfo Helper Methods
+        public MaterialityGridChildInfo GetInfo(FrameworkElement element)
+        {
+            if (materialityGridInfos == null || materialityGridInfos.Count == 0)
+                 ReinitializeInfo();
+            foreach(var info in materialityGridInfos)
+            {
+                if (info.TargetName == element.Name)
+                    return info;
+            }
+            return null;
+        }
+
+        public void SetSM(FrameworkElement element,int sm)
+        {
+            GetInfo(element).SM = sm;
+        }
+        public void SetSM_Offset(FrameworkElement element, int offset)
+        {
+            GetInfo(element).SM_Offset = offset;
+        }
+
+        public void SetMD(FrameworkElement element, int md)
+        {
+            GetInfo(element).MD = md;
+        }
+        public void SetMD_Offset(FrameworkElement element, int offset)
+        {
+            GetInfo(element).MD_Offset = offset;
+        }
+
+        public void SetLG(FrameworkElement element, int lg)
+        {
+            GetInfo(element).LG = lg;
+        }
+        public void SetLG_Offset(FrameworkElement element, int offset)
+        {
+            GetInfo(element).LG_Offset = offset;
+        }
+
+        public void SetXL(FrameworkElement element, int xl)
+        {
+            GetInfo(element).XL = xl;
+        }
+        public void SetXL_Offset(FrameworkElement element, int offset)
+        {
+            GetInfo(element).XL_Offset = offset;
         }
         #endregion
 
         #region Filling Logic
-        /// <summary>
-        /// For each info in children, apply Column logic for control
-        /// </summary>
-        private void Rearrange()
-        {
-            if (materialityGridInfos == null || materialityGridInfos.Count == 0)
-                ReinitializeInfo();
-
-
-            //Here find all controls by names and Apply Column logic
-            foreach (var info in materialityGridInfos)
-            {
-                FrameworkElement obj = (FrameworkElement)this.FindName(info.TargetName);
-
-                SetSColumn(obj, info.SM);
-                SetSOffset(obj, info.SM_Offset);
-
-                SetMColumn(obj, info.MD);
-                SetMOffset(obj, info.MD_Offset);
-
-                SetLColumn(obj, info.LG);
-                SetLOffset(obj, info.LG_Offset);
-
-                SetXLColumn(obj, info.XL);
-                SetXLOffset(obj, info.XL_Offset);
-            }
-        }
-
         private void ReinitializeInfo()
         {
             materialityGridInfos = UIHelper.FindVisualChildren<MaterialityGridChildInfo>(this).ToList();
@@ -198,39 +127,41 @@ namespace Materiality.WPF.Layouts
         /// </summary>
         private void ReFillMaterialityGrid()
         {
+            if (materialityGridInfos == null)
+                ReinitializeInfo();
+
             if (ActualWidth > 1200) //Extra Large
             {
-               
-                GetCol = (e) => GetXLColumn(e);
-                SetCol = (e, col) => SetXLColumn(e, col);
+                GetCol = (e) => GetInfo(e).XL;
+                SetCol = (e, col) => SetXL(e, GetInfo(e).XL);
 
-                GetOffset = (e) => GetXLOffset(e);
-                SetOffset = (e,offset) => SetXLOffset(e,offset);
+                GetOffset = (e) => GetInfo(e).XL_Offset;
+                SetOffset = (e, col) => SetXL_Offset(e, GetInfo(e).XL_Offset);
 
             }
             else if (ActualWidth > 992) //Large
             {
-                GetCol = (e) => GetLColumn(e);
-                SetCol = (e, col) => SetLColumn(e, col);
+                GetCol = (e) => GetInfo(e).LG;
+                SetCol = (e, col) => SetLG(e, GetInfo(e).LG);
 
-                GetOffset = (e) => GetLOffset(e);
-                SetOffset = (e, offset) => SetLOffset(e, offset);
+                GetOffset = (e) => GetInfo(e).LG_Offset;
+                SetOffset = (e, col) => SetLG_Offset(e, GetInfo(e).LG_Offset);
             }
             else if (ActualWidth > 600) //Medium
             {
-                GetCol = (e) => GetMColumn(e);
-                SetCol = (e, col) => SetMColumn(e, col);
+                GetCol = (e) => GetInfo(e).MD;
+                SetCol = (e, col) => SetMD(e, GetInfo(e).MD);
 
-                GetOffset = (e) => GetMOffset(e);
-                SetOffset = (e, offset) => SetMOffset(e, offset);
+                GetOffset = (e) => GetInfo(e).MD_Offset;
+                SetOffset = (e, col) => SetMD_Offset(e, GetInfo(e).MD_Offset);
             }
             else if (ActualWidth <= 600)  //Small
             {
-                GetCol = (e) => GetSColumn(e);
-                SetCol = (e, col) => SetSColumn(e, col);
+                GetCol = (e) => GetInfo(e).SM;
+                SetCol = (e, col) => SetSM(e, GetInfo(e).SM);
 
-                GetOffset = (e) => GetSOffset(e);
-                SetOffset = (e, offset) => SetSOffset(e, offset);
+                GetOffset = (e) => GetInfo(e).SM_Offset;
+                SetOffset = (e, col) => SetSM_Offset(e, GetInfo(e).SM_Offset);
             }
             ArrangeChildren();
             return;
@@ -258,23 +189,26 @@ namespace Materiality.WPF.Layouts
             int row = 0; //Current row in a loop
             for (int i = 0; i < this.Children.Count; i++)//Call for each existing UIElement in MaterialityGrid
             {
-                UIElement element = this.Children[i];
-                if (GetCol(element) + GetOffset(element) > RemainingSpacePerCurrentRow) //Calculate if Control with it's offset can fit the current row
+                if (!(Children[i] is MaterialityGridChildInfo))
                 {
-                    SetOffset(element, 0);
-                    SetCol(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size, and set offset to 0
-                }
-                Grid.SetColumn(element, startCol + GetOffset(element));
-                Grid.SetColumnSpan(element, GetCol(element));
-                Grid.SetRow(element, row);
-                startCol += GetCol(element) + GetOffset(element);
-                RemainingSpacePerCurrentRow -= (GetCol(element) + GetOffset(element));
-                if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
-                {
-                    this.RowDefinitions.Add(new RowDefinition());
-                    startCol = 0;
-                    row++;
-                    RemainingSpacePerCurrentRow = MaxGridCount;
+                    FrameworkElement element = (FrameworkElement)this.Children[i];
+                    if (GetCol(element) + GetOffset(element) > RemainingSpacePerCurrentRow) //Calculate if Control with it's offset can fit the current row
+                    {
+                        SetOffset(element, 0);
+                        SetCol(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size, and set offset to 0
+                    }
+                    Grid.SetColumn(element, startCol + GetOffset(element));
+                    Grid.SetColumnSpan(element, GetCol(element));
+                    Grid.SetRow(element, row);
+                    startCol += GetCol(element) + GetOffset(element);
+                    RemainingSpacePerCurrentRow -= (GetCol(element) + GetOffset(element));
+                    if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
+                    {
+                        this.RowDefinitions.Add(new RowDefinition());
+                        startCol = 0;
+                        row++;
+                        RemainingSpacePerCurrentRow = MaxGridCount;
+                    }
                 }
             }
         }

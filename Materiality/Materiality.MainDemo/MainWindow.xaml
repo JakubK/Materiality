@@ -20,10 +20,10 @@
             </materiality:MaterialityGrid.Background>
             
            
-            <Button Content="I'm a button" Height="100" x:Name="btn"/>
-            <Button Content="I'm a button" Height="100" x:Name="btn2"/>
-            <Button Content="I'm a button" Height="100" x:Name="btn3"/>
-            <Button Content="I'm a button" Height="100" x:Name="btn4"/>
+            <Button Content="1" Height="100" x:Name="btn"/>
+            <Button Content="2" Height="100" x:Name="btn2"/>
+            <Button Content="3" Height="100" x:Name="btn3"/>
+            <Button Content="4" Height="100" x:Name="btn4"/>
 
             <materiality:MaterialityGridChildInfo TargetName="btn" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
             <materiality:MaterialityGridChildInfo TargetName="btn2" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
