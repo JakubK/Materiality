@@ -16,10 +16,10 @@ namespace Materiality.WPF.Layouts
     {
         public RowFiller()
         {
-            MaterialityGrid.SetSColumn(this, 12);
-            MaterialityGrid.SetMColumn(this, 12);
-            MaterialityGrid.SetLColumn(this, 12);
-            MaterialityGrid.SetXLColumn(this, 12);
+            //MaterialityGrid.SetSColumn(this, 12);
+            //MaterialityGrid.SetMColumn(this, 12);
+            //MaterialityGrid.SetLColumn(this, 12);
+            //MaterialityGrid.SetXLColumn(this, 12);
         }
     }
 }
