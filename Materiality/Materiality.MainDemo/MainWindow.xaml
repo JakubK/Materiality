@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
         xmlns:materiality="clr-namespace:Materiality.WPF.Layouts;assembly=Materiality.WPF"
+        xmlns:materiality11="clr-namespace:Materiality.WPF.Controls;assembly=Materiality.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="1300">
     <Window.Resources>
@@ -14,21 +15,21 @@
         </ResourceDictionary>
     </Window.Resources>
     <ScrollViewer>
-        <materiality:MaterialityGrid x:Name="demoGrid">
+        <materiality:MaterialityGrid Margin="0,10,0,0" x:Name="demoGrid">
             <materiality:MaterialityGrid.Background>
-                <StaticResource ResourceKey="red darken-1"/>
+                <StaticResource ResourceKey="white"/>
+                <!--Visible color of unused/skipped space-->
             </materiality:MaterialityGrid.Background>
-            
-           
-            <Button Content="1" Height="100" x:Name="btn"/>
-            <Button Content="2" Height="100" x:Name="btn2"/>
-            <Button Content="3" Height="100" x:Name="btn3"/>
-            <Button Content="4" Height="100" x:Name="btn4"/>
 
-            <materiality:MaterialityGridChildInfo TargetName="btn" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
-            <materiality:MaterialityGridChildInfo TargetName="btn2" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
-            <materiality:MaterialityGridChildInfo TargetName="btn3" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
-            <materiality:MaterialityGridChildInfo TargetName="btn4" SM="2" SM_Offset="10" MD="3" LG="6" XL="12"/>
+            <materiality11:MaterialButton RippleBrush="Black" HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn"/>
+            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn2"/>
+            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn3"/>
+            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn4"/>
+
+            <materiality:MaterialityGridChildInfo TargetName="btn"  XL="2" SM="2" SM_Offset="8"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn2" XL="2" XL_Offset="1" SM="2" SM_Offset="0"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn3" XL="2" XL_Offset="1" SM="2" SM_Offset="8"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn4" XL="2" XL_Offset="1" LG="3" MD="3" SM="3" SM_Offset="0"/>
 
         </materiality:MaterialityGrid>
     </ScrollViewer>

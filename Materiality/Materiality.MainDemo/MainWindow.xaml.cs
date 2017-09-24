@@ -26,7 +26,7 @@ namespace Materiality.MainDemo
         {
             InitializeComponent();
             this.KeyDown += MainWindow_KeyDown;
-            demoGrid.SizeChanged += DemoGrid_SizeChanged;          
+            demoGrid.SizeChanged += DemoGrid_SizeChanged;
         }
 
         private void DemoGrid_SizeChanged(object sender, SizeChangedEventArgs e)
