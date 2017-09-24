@@ -15,4 +15,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Ripple.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/MaterialButton.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

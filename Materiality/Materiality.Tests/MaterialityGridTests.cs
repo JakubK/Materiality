@@ -19,7 +19,7 @@ namespace Materiality.Tests
             //arrange
             MaterialityGrid grid = new MaterialityGrid();
             //act
-
+            
             //assert
         }
     }

@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace Materiality.WPF.Helpers
 {
+    /// <summary>
+    /// Helper class for Children identification
+    /// </summary>
     public static class UIHelper
     {
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject

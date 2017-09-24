@@ -24,11 +24,11 @@ namespace Materiality.WPF.Layouts
     public class MaterialityGrid : Grid
     {
         #region Fields
-        public Func<FrameworkElement, int> GetCol;
-        public Action<FrameworkElement, int> SetCol;
+        private Func<FrameworkElement, int> GetCol;
+        private Action<FrameworkElement, int> SetCol;
 
-        public Func<FrameworkElement, int> GetOffset;
-        public Action<FrameworkElement, int> SetOffset;
+        private Func<FrameworkElement, int> GetOffset;
+        private Action<FrameworkElement, int> SetOffset;
 
         protected const int MaxGridCount = 12;
         private List<MaterialityGridChildInfo> materialityGridInfos;
@@ -129,41 +129,47 @@ namespace Materiality.WPF.Layouts
         {
             if (materialityGridInfos == null)
                 ReinitializeInfo();
-
-            if (ActualWidth > 1200) //Extra Large
+            try
             {
-                GetCol = (e) => GetInfo(e).XL;
-                SetCol = (e, col) => SetXL(e, GetInfo(e).XL);
+                if (ActualWidth > 1200) //Extra Large
+                {
+                    GetCol = (e) => GetInfo(e).XL;
+                    SetCol = (e, col) => SetXL(e, GetInfo(e).XL);
 
-                GetOffset = (e) => GetInfo(e).XL_Offset;
-                SetOffset = (e, col) => SetXL_Offset(e, GetInfo(e).XL_Offset);
+                    GetOffset = (e) => GetInfo(e).XL_Offset;
+                    SetOffset = (e, col) => SetXL_Offset(e, GetInfo(e).XL_Offset);
 
+                }
+                else if (ActualWidth > 992) //Large
+                {
+                    GetCol = (e) => GetInfo(e).LG;
+                    SetCol = (e, col) => SetLG(e, GetInfo(e).LG);
+
+                    GetOffset = (e) => GetInfo(e).LG_Offset;
+                    SetOffset = (e, col) => SetLG_Offset(e, GetInfo(e).LG_Offset);
+                }
+                else if (ActualWidth > 600) //Medium
+                {
+                    GetCol = (e) => GetInfo(e).MD;
+                    SetCol = (e, col) => SetMD(e, GetInfo(e).MD);
+
+                    GetOffset = (e) => GetInfo(e).MD_Offset;
+                    SetOffset = (e, col) => SetMD_Offset(e, GetInfo(e).MD_Offset);
+                }
+                else if (ActualWidth <= 600)  //Small
+                {
+                    GetCol = (e) => GetInfo(e).SM;
+                    SetCol = (e, col) => SetSM(e, GetInfo(e).SM);
+
+                    GetOffset = (e) => GetInfo(e).SM_Offset;
+                    SetOffset = (e, col) => SetSM_Offset(e, GetInfo(e).SM_Offset);
+                }
+                ArrangeChildren();
             }
-            else if (ActualWidth > 992) //Large
+            catch(Exception e)
             {
-                GetCol = (e) => GetInfo(e).LG;
-                SetCol = (e, col) => SetLG(e, GetInfo(e).LG);
-
-                GetOffset = (e) => GetInfo(e).LG_Offset;
-                SetOffset = (e, col) => SetLG_Offset(e, GetInfo(e).LG_Offset);
+                throw new Exception("MaterialityGridChildInfo tried to access FrameworkElement that doesn't exist");
             }
-            else if (ActualWidth > 600) //Medium
-            {
-                GetCol = (e) => GetInfo(e).MD;
-                SetCol = (e, col) => SetMD(e, GetInfo(e).MD);
-
-                GetOffset = (e) => GetInfo(e).MD_Offset;
-                SetOffset = (e, col) => SetMD_Offset(e, GetInfo(e).MD_Offset);
-            }
-            else if (ActualWidth <= 600)  //Small
-            {
-                GetCol = (e) => GetInfo(e).SM;
-                SetCol = (e, col) => SetSM(e, GetInfo(e).SM);
-
-                GetOffset = (e) => GetInfo(e).SM_Offset;
-                SetOffset = (e, col) => SetSM_Offset(e, GetInfo(e).SM_Offset);
-            }
-            ArrangeChildren();
             return;
         }
 
