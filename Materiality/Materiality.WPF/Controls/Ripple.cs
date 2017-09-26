@@ -30,6 +30,14 @@ namespace Materiality.WPF.Controls
 
         bool canAnimate = true;
 
+        private Storyboard storyboard;
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            storyboard = new Storyboard();
+        }
+
         public void ScaleUpRipple()
         {
             if (canAnimate)
@@ -52,23 +60,26 @@ namespace Materiality.WPF.Controls
                         Duration = TimeSpan.FromSeconds(0.5f),
                         BeginTime = TimeSpan.FromSeconds(0f)
                     };
-
-                    var sb = new Storyboard();
-
+                    storyboard = new Storyboard();
                     Storyboard.SetTarget(fade, this);
                     Storyboard.SetTargetProperty(fade, new PropertyPath(FrameworkElement.WidthProperty));
 
                     Storyboard.SetTarget(fade1, this);
                     Storyboard.SetTargetProperty(fade1, new PropertyPath(FrameworkElement.OpacityProperty));
 
-                    sb.Children.Add(fade);
-                    sb.Children.Add(fade1);
+                    storyboard.Children.Add(fade);
+                    storyboard.Children.Add(fade1);
 
-                    sb.Completed += ReverseOpacity;
+                    storyboard.Completed += ReverseOpacity;
 
                     fade.AutoReverse = true;
-                    sb.Begin();
+                    storyboard.Begin();
                 }
+            }
+            else
+            {
+                storyboard.Stop();
+                storyboard.Begin();
             }
         }
 
@@ -81,13 +92,12 @@ namespace Materiality.WPF.Controls
                 Duration = TimeSpan.FromMilliseconds(1f),
                 BeginTime = TimeSpan.FromMilliseconds(1f)
             };
-            var sb = new Storyboard();
-
+            storyboard = new Storyboard();
             Storyboard.SetTarget(fade2, this);
             Storyboard.SetTargetProperty(fade2, new PropertyPath(FrameworkElement.OpacityProperty));
-            sb.Children.Add(fade2);
-            sb.Completed += ToggleAnimation;
-            sb.Begin();
+            storyboard.Children.Add(fade2);
+            storyboard.Completed += ToggleAnimation;
+            storyboard.Begin();
         }
 
         private void ToggleAnimation(object sender, EventArgs e)
