@@ -92,7 +92,6 @@ namespace Materiality.WPF.Controls
         private void MaterialButton_Click(object sender, RoutedEventArgs e)
         {
             Ripple ripple = GetTemplateChild("Ripple") as Ripple;
-
             ripple.ScaleUpRipple();
         }
 

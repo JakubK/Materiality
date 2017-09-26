@@ -15,7 +15,6 @@ namespace Materiality.WPF.Converters
 
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            Debug.WriteLine(values[0]);
             return new System.Windows.Rect(0, 0, (double)values[0], (double)values[1]);
         }
 

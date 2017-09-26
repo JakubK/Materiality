@@ -21,7 +21,7 @@
                 <!--Visible color of unused/skipped space-->
             </materiality:MaterialityGrid.Background>
 
-            <materiality11:MaterialButton RippleBrush="Black" HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn"/>
+            <materiality11:MaterialButton RippleBrush="Blue" HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn"/>
             <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn2"/>
             <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn3"/>
             <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn4"/>
