@@ -21,10 +21,10 @@ namespace Materiality.WPF.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Ripple), new FrameworkPropertyMetadata(typeof(Ripple)));
         }
 
-        public static readonly DependencyProperty RippleColorProperty = DependencyProperty.Register("RippleColor", typeof(Color), typeof(Ripple), new FrameworkPropertyMetadata(Colors.White));
-        public Color RippleColor
+        public static readonly DependencyProperty RippleColorProperty = DependencyProperty.Register("RippleColor", typeof(Brush), typeof(Ripple), new FrameworkPropertyMetadata(Brushes.White));
+        public Brush RippleColor
         {
-            get { return (Color)GetValue(RippleColorProperty); }
+            get { return (Brush)GetValue(RippleColorProperty); }
             set { SetValue(RippleColorProperty, value); }
         }
 
@@ -43,6 +43,7 @@ namespace Materiality.WPF.Controls
             if (canAnimate)
             {
                 FrameworkElement parent = (FrameworkElement)this.Parent;
+
                 if (parent != null)
                 {
                     canAnimate = false;

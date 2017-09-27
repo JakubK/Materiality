@@ -56,25 +56,33 @@ namespace Materiality.WPF.Controls
    
     public class MaterialButton : Button
     {
+       
+
         public static readonly DependencyProperty ButtonTypeProperty = DependencyProperty.Register("ButtonType", typeof(ButtonType), typeof(MaterialButton),new PropertyMetadata(ButtonType.Raised));
         public ButtonType ButtonType
         {
             get { return (ButtonType)GetValue(ButtonTypeProperty); }
             set { SetValue(ButtonTypeProperty, value); }
-           
         }
 
-        public static readonly DependencyProperty HoverBrushProperty = DependencyProperty.Register("HoverBrush",typeof(Color),typeof(MaterialButton), new UIPropertyMetadata(Colors.White));
-        public Color HoverBrush
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(MaterialButton), new PropertyMetadata("NEW BUTTON"));
+        public string Text
         {
-            get { return (Color)GetValue(HoverBrushProperty); }
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
+        }
+
+        public static readonly DependencyProperty HoverBrushProperty = DependencyProperty.Register("HoverBrush",typeof(Brush),typeof(MaterialButton), new UIPropertyMetadata(Brushes.White));
+        public Brush HoverBrush
+        {
+            get { return (Brush)GetValue(HoverBrushProperty); }
             set { SetValue(HoverBrushProperty, value); }
         }
 
-        public static readonly DependencyProperty RippleBrushProperty = DependencyProperty.Register("RippleBrush", typeof(Color), typeof(MaterialButton), new UIPropertyMetadata(Colors.White));
-        public Color RippleBrush
+        public static readonly DependencyProperty RippleBrushProperty = DependencyProperty.Register("RippleBrush", typeof(Brush), typeof(MaterialButton), new UIPropertyMetadata(Brushes.White));
+        public Brush RippleBrush
         {
-            get { return (Color)GetValue(RippleBrushProperty); }
+            get { return (Brush)GetValue(RippleBrushProperty); }
             set { SetValue(RippleBrushProperty, value); }
         }
 
@@ -91,9 +99,9 @@ namespace Materiality.WPF.Controls
 
         private void MaterialButton_Click(object sender, RoutedEventArgs e)
         {
+
             Ripple ripple = GetTemplateChild("Ripple") as Ripple;
             ripple.ScaleUpRipple();
         }
-
     }
 }
