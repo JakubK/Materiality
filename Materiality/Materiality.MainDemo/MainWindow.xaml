@@ -21,15 +21,16 @@
                 <!--Visible color of unused/skipped space-->
             </materiality:MaterialityGrid.Background>
 
-            <materiality11:MaterialButton RippleBrush="Blue" HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn"/>
-            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn2"/>
-            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn3"/>
-            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White" Content="4" x:Name="btn4"/>
+            <materiality11:MaterialButton 
+                Click="Button_Click" Height="70" FontSize="20"  
+                Background="{StaticResource blue lighten-1}" HoverBrush="{StaticResource blue lighten-2}" RippleBrush="{StaticResource blue lighten-3}" 
+                ButtonType="Raised" Foreground="White" x:Name="btn2"/>
+            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White"  x:Name="btn3"/>
+            <materiality11:MaterialButton HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}" ButtonType="Raised" Foreground="White"  x:Name="btn4"/>
 
-            <materiality:MaterialityGridChildInfo TargetName="btn"  XL="2" SM="2" SM_Offset="8"/>
-            <materiality:MaterialityGridChildInfo TargetName="btn2" XL="2" XL_Offset="1" SM="2" SM_Offset="0"/>
-            <materiality:MaterialityGridChildInfo TargetName="btn3" XL="2" XL_Offset="1" SM="2" SM_Offset="8"/>
-            <materiality:MaterialityGridChildInfo TargetName="btn4" XL="2" XL_Offset="1" LG="3" MD="3" SM="3" SM_Offset="0"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn2" XL="2"/>
+            <materiality:MaterialityGridChildInfo TargetName="btn3" XL="2" />
+            <materiality:MaterialityGridChildInfo TargetName="btn4" XL="2" />
 
         </materiality:MaterialityGrid>
     </ScrollViewer>
