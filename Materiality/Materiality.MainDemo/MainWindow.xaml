@@ -21,19 +21,20 @@
                 <!--Visible color of unused/skipped space-->
             </materiality:MaterialityGrid.Background>
 
-            <materiality11:RaisedButton  Content="Roboto" 
+            <materiality11:RaisedButton Margin="10,0,0,0"  Content="Roboto" 
                 Height="70" FontSize="30"  
                 Background="{StaticResource blue lighten-1}" HoverBrush="{StaticResource blue lighten-2}" RippleBrush="{StaticResource blue lighten-3}" 
                  Foreground="White" x:Name="btn2"/>
             <materiality11:FloatingButton Content="DDD" Width="70" Height="70"  HoverBrush="Red"  FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="White"  x:Name="btn3"/>
             <materiality11:FlatButton  Height="70" FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="Black"  x:Name="btn4"/>
             <materiality11:MaterialRadioButton RippleBrush="Gray" Click="btn5_Checked" Content="Radio Button" Width="50" Background="Gray" Height="50" x:Name="btn5" />
-            
+            <materiality11:Switch BackToggleBrush="Gray" FrontToggleBrush="LightGray" x:Name="btn6" Height="40" Width="80"/>
+
             <materiality:MaterialityGridChildInfo TargetName="btn2" XL="2"/>
             <materiality:MaterialityGridChildInfo TargetName="btn3" XL="2" />
             <materiality:MaterialityGridChildInfo TargetName="btn4" XL="2" />
             <materiality:MaterialityGridChildInfo TargetName="btn5" XL="2" />
-
+            <materiality:MaterialityGridChildInfo TargetName="btn6" XL="2" />
 
         </materiality:MaterialityGrid>
     </ScrollViewer>

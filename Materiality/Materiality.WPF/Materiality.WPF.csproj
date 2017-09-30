@@ -71,6 +71,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Switch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,6 +84,7 @@
     <Compile Include="Controls\MaterialRadioButton.cs" />
     <Compile Include="Controls\RaisedButton.cs" />
     <Compile Include="Controls\Ripple.cs" />
+    <Compile Include="Controls\Switch.cs" />
     <Compile Include="Converters\RectConverter.cs" />
     <Compile Include="CustomControl1.cs">
       <SubType>Code</SubType>
