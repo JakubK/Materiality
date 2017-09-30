@@ -20,13 +20,6 @@ namespace Materiality.WPF.Controls
 {
     public class RaisedButton : Button
     {
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(RaisedButton), new PropertyMetadata("NEW BUTTON"));
-        public string Text
-        {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
-        }
-
         public static readonly DependencyProperty HoverBrushProperty = DependencyProperty.Register("HoverBrush",typeof(Brush),typeof(RaisedButton), new UIPropertyMetadata(Brushes.White));
         public Brush HoverBrush
         {

@@ -11,13 +11,6 @@ namespace Materiality.WPF.Controls
 {
     public class FloatingButton : Button
     {
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(FloatingButton), new PropertyMetadata("NEW BUTTON"));
-        public string Text
-        {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
-        }
-
         public static readonly DependencyProperty HoverBrushProperty = DependencyProperty.Register("HoverBrush", typeof(Brush), typeof(FloatingButton), new UIPropertyMetadata(Brushes.LightGray));
         public Brush HoverBrush
         {

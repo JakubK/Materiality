@@ -31,7 +31,9 @@
                                 </Border.Clip>
                                 <local:Ripple Margin="-50"  ClipToBounds="True" HorizontalAlignment="Center"  VerticalAlignment="Center" RippleColor="{TemplateBinding RippleBrush}" x:Name="Ripple"/>
                             </Border>
-                            <TextBlock FontWeight="{TemplateBinding FontWeight}" FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}"  FontSize="{TemplateBinding FontSize}" TextAlignment="Center" Padding="16,0,16,0" FontFamily="{StaticResource Roboto}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Text}"/>
+                            <!--<TextBlock FontWeight="{TemplateBinding FontWeight}" FontStretch="{TemplateBinding FontStretch}" FontStyle="{TemplateBinding FontStyle}"  FontSize="{TemplateBinding FontSize}" TextAlignment="Center" Padding="16,0,16,0" FontFamily="{StaticResource Roboto}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Text}"/>-->
+                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
