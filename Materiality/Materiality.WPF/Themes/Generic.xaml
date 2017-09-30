@@ -21,6 +21,7 @@
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/RaisedButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/FlatButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/FloatingButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/MaterialRadioButton.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

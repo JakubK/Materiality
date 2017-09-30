@@ -48,5 +48,9 @@ namespace Materiality.MainDemo
               
             }
         }
+
+        private void btn5_Checked(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

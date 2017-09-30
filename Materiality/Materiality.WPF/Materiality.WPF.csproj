@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\MaterialRadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\RaisedButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +77,7 @@
     </Page>
     <Compile Include="Controls\FlatButton.cs" />
     <Compile Include="Controls\FloatingButton.cs" />
+    <Compile Include="Controls\MaterialRadioButton.cs" />
     <Compile Include="Controls\RaisedButton.cs" />
     <Compile Include="Controls\Ripple.cs" />
     <Compile Include="Converters\RectConverter.cs" />
