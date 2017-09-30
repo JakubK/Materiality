@@ -25,7 +25,7 @@
                 Height="70" FontSize="20"  
                 Background="{StaticResource blue lighten-1}" HoverBrush="{StaticResource blue lighten-2}" RippleBrush="{StaticResource blue lighten-3}" 
                  Foreground="White" x:Name="btn2"/>
-            <materiality11:RaisedButton  HoverBrush="Red" Height="70" FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="White"  x:Name="btn3"/>
+            <materiality11:FloatingButton Width="70"  HoverBrush="Red"  FontSize="10"  Background="{StaticResource blue accent-1}"  Foreground="White"  x:Name="btn3"/>
             <materiality11:FlatButton  Height="70" FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="Black"  x:Name="btn4"/>
          
             <materiality:MaterialityGridChildInfo TargetName="btn2" XL="2"/>
