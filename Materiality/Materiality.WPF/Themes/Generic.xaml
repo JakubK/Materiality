@@ -18,6 +18,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Ripple.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/MaterialButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/RaisedButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/FlatButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
