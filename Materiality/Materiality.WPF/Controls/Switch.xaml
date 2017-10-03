@@ -6,15 +6,22 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Switch}">
                     <Grid>
-                        <Rectangle RadiusX="15" RadiusY="15"  Width="{TemplateBinding Width}" Fill="{TemplateBinding BackToggleBrush}" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Rectangle x:Name="back" RadiusX="15" RadiusY="15"  Width="{TemplateBinding Width}" Fill="{TemplateBinding OffBackToggleBrush}" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                         </Rectangle>
                         <Grid x:Name="holder" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Ellipse Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}" Fill="{TemplateBinding FrontToggleBrush}" Height="{TemplateBinding Height}" >
+                            <Ellipse x:Name="front" Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}" Fill="{TemplateBinding OffFrontToggleBrush}" Height="{TemplateBinding Height}" >
 
                             </Ellipse>
                         </Grid>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="back" Property="Fill" Value="{Binding OnBackToggleBrush,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:Switch}}}"/>
+                            <Setter TargetName="front" Property="Fill" Value="{Binding OnFrontToggleBrush,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:Switch}}}"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

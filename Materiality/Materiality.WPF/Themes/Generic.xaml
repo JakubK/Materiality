@@ -23,6 +23,8 @@
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/FloatingButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/MaterialRadioButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Switch.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Toolbar.xaml"/>
+
 
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

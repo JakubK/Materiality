@@ -18,25 +18,36 @@ namespace Materiality.WPF.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Switch), new FrameworkPropertyMetadata(typeof(Switch)));
         }
 
-        //public static readonly DependencyProperty RippleBrushProperty = DependencyProperty.Register("RippleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
-        //public Brush RippleBrush
-        //{
-        //    get { return (Brush)GetValue(RippleBrushProperty); }
-        //    set { SetValue(RippleBrushProperty, value); }
-        //}
-
-        public static readonly DependencyProperty BackToggleBrushProperty = DependencyProperty.Register("BackToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
-        public Brush BackToggleBrush
+        public static readonly DependencyProperty OffBackToggleBrushProperty = DependencyProperty.Register("OffBackToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
+        public Brush OffBackToggleBrush
         {
-            get { return (Brush)GetValue(BackToggleBrushProperty); }
-            set { SetValue(BackToggleBrushProperty,value); }
+            get { return (Brush)GetValue(OffBackToggleBrushProperty); }
+            set { SetValue(OffBackToggleBrushProperty, value); }
         }
 
-        public static readonly DependencyProperty FrontToggleBrushProperty = DependencyProperty.Register("FrontToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
-        public Brush FrontToggleBrush
+
+
+        public static readonly DependencyProperty OffFrontToggleBrushProperty = DependencyProperty.Register("OffFrontToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
+        public Brush OffFrontToggleBrush
         {
-            get { return (Brush)GetValue(FrontToggleBrushProperty); }
-            set { SetValue(FrontToggleBrushProperty, value); }
+            get { return (Brush)GetValue(OffFrontToggleBrushProperty); }
+            set { SetValue(OffFrontToggleBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty OnBackToggleBrushProperty = DependencyProperty.Register("OnBackToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
+        public Brush OnBackToggleBrush
+        {
+            get { return (Brush)GetValue(OnBackToggleBrushProperty); }
+            set { SetValue(OnBackToggleBrushProperty, value); }
+        }
+
+
+
+        public static readonly DependencyProperty OnFrontToggleBrushProperty = DependencyProperty.Register("OnFrontToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
+        public Brush OnFrontToggleBrush
+        {
+            get { return (Brush)GetValue(OnFrontToggleBrushProperty); }
+            set { SetValue(OnFrontToggleBrushProperty, value); }
         }
 
         public override void OnApplyTemplate()

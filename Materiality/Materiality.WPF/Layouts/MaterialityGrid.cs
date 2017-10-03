@@ -166,7 +166,7 @@ namespace Materiality.WPF.Layouts
                 }
                 ArrangeChildren();
             }
-            catch(Exception e)
+            catch
             {
                 throw new Exception("MaterialityGridChildInfo tried to access FrameworkElement that doesn't exist");
             }
