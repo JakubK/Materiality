@@ -3,6 +3,7 @@ using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
+using System.Windows.Markup;
 
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
@@ -40,6 +41,8 @@ using System.Windows;
                                       // aplikacji lub słowników zasobów specyficznych dla motywów)
 )]
 
+[assembly: XmlnsDefinition("http://materiality.wpf","Materiality.WPF.Controls")]
+[assembly: XmlnsDefinition("http://materiality.wpf", "Materiality.WPF.Layouts")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
 //

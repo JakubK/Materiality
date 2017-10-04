@@ -91,9 +91,6 @@
     <Compile Include="Controls\Switch.cs" />
     <Compile Include="Controls\Toolbar.cs" />
     <Compile Include="Converters\RectConverter.cs" />
-    <Compile Include="CustomControl1.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AnimationHelper.cs" />
