@@ -20,9 +20,6 @@ namespace Materiality.WPF.Layouts
     public class MaterialityGridChildInfo : UIElement
     {
         #region ControlHandle
-        /// <summary>
-        /// Repair the Binding
-        /// </summary>
         public string TargetName
         {
             get { return (string)GetValue(TargetNameProperty); }

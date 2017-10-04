@@ -200,12 +200,16 @@ namespace Materiality.WPF.Layouts
                     FrameworkElement element = (FrameworkElement)this.Children[i];
                     if (GetCol(element) + GetOffset(element) > RemainingSpacePerCurrentRow) //Calculate if Control with it's offset can fit the current row
                     {
-                        SetOffset(element, 0);
-                        SetCol(element, RemainingSpacePerCurrentRow); //if not, change the desired size to available size, and set offset to 0
+                        this.RowDefinitions.Add(new RowDefinition());//if not, add new row
+                        startCol = 0;
+                        RemainingSpacePerCurrentRow = MaxGridCount;
+                        row++; 
                     }
+
                     Grid.SetColumn(element, startCol + GetOffset(element));
                     Grid.SetColumnSpan(element, GetCol(element));
                     Grid.SetRow(element, row);
+
                     startCol += GetCol(element) + GetOffset(element);
                     RemainingSpacePerCurrentRow -= (GetCol(element) + GetOffset(element));
                     if (RemainingSpacePerCurrentRow == 0) //If the row is filled, create a new one for future (it will have 0 height until it will be needed)
