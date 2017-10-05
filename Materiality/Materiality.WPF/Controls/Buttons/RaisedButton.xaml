@@ -3,9 +3,9 @@
                     xmlns:local="clr-namespace:Materiality.WPF.Controls"
                     xmlns:convert="clr-namespace:Materiality.WPF.Converters">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors/Colors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    <FontFamily x:Key="Roboto">pack://application:,,,/Fonts/#Roboto-Regular</FontFamily>
+    <FontFamily x:Key="Roboto">pack://application:,,,/Fonts/Roboto/#Roboto-Regular</FontFamily>
     <Style TargetType="{x:Type local:RaisedButton}">
         <Style.Resources>
             <convert:RectConverter x:Key="Converter"/>

@@ -47,23 +47,23 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Colors.xaml">
+    <Page Include="Colors\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\FlatButton.xaml">
+    <Page Include="Controls\Buttons\FlatButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\FloatingButton.xaml">
+    <Page Include="Controls\Buttons\FloatingButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MaterialRadioButton.xaml">
+    <Page Include="Controls\Selectors\MaterialRadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\RaisedButton.xaml">
+    <Page Include="Controls\Buttons\RaisedButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,7 +71,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Switch.xaml">
+    <Page Include="Controls\Selectors\Switch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -83,12 +83,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Controls\FlatButton.cs" />
-    <Compile Include="Controls\FloatingButton.cs" />
-    <Compile Include="Controls\MaterialRadioButton.cs" />
-    <Compile Include="Controls\RaisedButton.cs" />
+    <Compile Include="Controls\Buttons\FlatButton.cs" />
+    <Compile Include="Controls\Buttons\FloatingButton.cs" />
+    <Compile Include="Controls\Selectors\MaterialRadioButton.cs" />
+    <Compile Include="Controls\Buttons\RaisedButton.cs" />
     <Compile Include="Controls\Ripple.cs" />
-    <Compile Include="Controls\Switch.cs" />
+    <Compile Include="Controls\Selectors\Switch.cs" />
     <Compile Include="Controls\Toolbar.cs" />
     <Compile Include="Converters\RectConverter.cs" />
   </ItemGroup>
@@ -114,25 +114,30 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Roboto-Black.ttf" />
-    <Resource Include="Fonts\Roboto-BlackItalic.ttf" />
-    <Resource Include="Fonts\Roboto-Bold.ttf" />
-    <Resource Include="Fonts\Roboto-BoldItalic.ttf" />
-    <Resource Include="Fonts\Roboto-Italic.ttf" />
-    <Resource Include="Fonts\Roboto-Light.ttf" />
-    <Resource Include="Fonts\Roboto-LightItalic.ttf" />
-    <Resource Include="Fonts\Roboto-Medium.ttf" />
-    <Resource Include="Fonts\Roboto-MediumItalic.ttf" />
-    <Resource Include="Fonts\Roboto-Regular.ttf" />
-    <Resource Include="Fonts\Roboto-Thin.ttf" />
-    <Resource Include="Fonts\Roboto-ThinItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Black.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Bold.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Italic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Light.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Medium.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Regular.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Thin.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <None Include="Fonts\Icons\materialdesignicons-webfont.eot" />
+    <Resource Include="Fonts\Icons\materialdesignicons-webfont.ttf" />
+    <None Include="Fonts\Icons\materialdesignicons-webfont.woff" />
+    <None Include="Fonts\Icons\materialdesignicons-webfont.woff2" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Colors\" />
+    <Content Include="Fonts\Icons\materialdesignicons-webfont.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

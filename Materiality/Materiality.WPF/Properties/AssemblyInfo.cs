@@ -41,7 +41,7 @@ using System.Windows.Markup;
                                       // aplikacji lub słowników zasobów specyficznych dla motywów)
 )]
 
-[assembly: XmlnsDefinition("http://materiality.wpf","Materiality.WPF.Controls")]
+[assembly: XmlnsDefinition("http://materiality.wpf", "Materiality.WPF.Controls")]
 [assembly: XmlnsDefinition("http://materiality.wpf", "Materiality.WPF.Layouts")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:

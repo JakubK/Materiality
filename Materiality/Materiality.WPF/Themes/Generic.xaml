@@ -5,11 +5,13 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Ripple.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/RaisedButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/FlatButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/FloatingButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/MaterialRadioButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Switch.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Buttons/RaisedButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Buttons/FlatButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Buttons/FloatingButton.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Selectors/MaterialRadioButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Selectors/Switch.xaml"/>
+        
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Toolbar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
