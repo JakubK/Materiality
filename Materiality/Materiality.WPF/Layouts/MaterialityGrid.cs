@@ -1,6 +1,7 @@
 ﻿using Materiality.WPF.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -31,8 +32,15 @@ namespace Materiality.WPF.Layouts
         private Action<FrameworkElement, int> SetOffset;
 
         protected const int MaxGridCount = 12;
-        private List<MaterialityGridChildInfo> materialityGridInfos;
+        #endregion
 
+        #region Dependency Properites
+        public static readonly DependencyProperty ChildInfosProperty = DependencyProperty.Register("ChildInfos", typeof(Collection<MaterialityGridChildInfo>), typeof(MaterialityGrid), new FrameworkPropertyMetadata());
+        public Collection<MaterialityGridChildInfo> ChildInfos
+        {
+            get { return (Collection<MaterialityGridChildInfo>)GetValue(ChildInfosProperty); }
+            set { SetValue(ChildInfosProperty, value); }
+        }
         #endregion
 
         #region Constructor
@@ -42,7 +50,7 @@ namespace Materiality.WPF.Layouts
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             this.ColumnDefinitions.Clear();
-            materialityGridInfos = new List<MaterialityGridChildInfo>();
+            ChildInfos = new Collection<MaterialityGridChildInfo>();
            
             
             for(int i = 0;i < MaxGridCount;i++)
@@ -69,9 +77,7 @@ namespace Materiality.WPF.Layouts
         #region MaterialityGridChildInfo Helper Methods
         public MaterialityGridChildInfo GetInfo(FrameworkElement element)
         {
-            if (materialityGridInfos == null || materialityGridInfos.Count == 0)
-                 ReinitializeInfo();
-            foreach(var info in materialityGridInfos)
+            foreach(var info in ChildInfos)
             {
                 if (info.TargetName == element.Name)
                     return info;
@@ -117,18 +123,12 @@ namespace Materiality.WPF.Layouts
         #endregion
 
         #region Filling Logic
-        private void ReinitializeInfo()
-        {
-            materialityGridInfos = UIHelper.FindVisualChildren<MaterialityGridChildInfo>(this).ToList();
-        }
 
         /// <summary>
         /// Gets the current Grid width, and the loops through each UserControl to arrange it
         /// </summary>
         private void ReFillMaterialityGrid()
         {
-            if (materialityGridInfos == null)
-                ReinitializeInfo();
             try
             {
                 if (ActualWidth > 1200) //Extra Large
