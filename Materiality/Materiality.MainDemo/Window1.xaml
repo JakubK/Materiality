@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Materiality.MainDemo"
-        xmlns:materiality11="clr-namespace:Materiality.WPF.Controls;assembly=Materiality.WPF"
+        xmlns:materiality="http://materiality.wpf"
         mc:Ignorable="d"
         Title="Window1" Height="300" Width="300">
     <Window.Resources>
@@ -12,7 +12,6 @@
         
     </Window.Resources>
     <Grid>
-        <Button x:Name="btn" FontFamily="{StaticResource Icons}" Width="100" Height="100">
-        </Button>
+        <materiality:Icon Type="AccessPoint" Fill="Red" />
     </Grid>
 </Window>

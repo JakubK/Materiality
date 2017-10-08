@@ -13,5 +13,8 @@
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Selectors/Switch.xaml"/>
         
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Toolbar.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Icons/Icon.xaml"/>
+
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

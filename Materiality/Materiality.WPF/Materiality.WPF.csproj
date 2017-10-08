@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Icons\Icon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Selectors\MaterialRadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,7 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Classes\Icons\Icons.cs" />
+    <Compile Include="Classes\Icons\IconType.cs" />
     <Compile Include="Controls\Buttons\FlatButton.cs" />
     <Compile Include="Controls\Buttons\FloatingButton.cs" />
     <Compile Include="Controls\Icons\Icon.cs" />
@@ -92,10 +96,12 @@
     <Compile Include="Controls\Ripple.cs" />
     <Compile Include="Controls\Selectors\Switch.cs" />
     <Compile Include="Controls\Toolbar.cs" />
+    <Compile Include="Converters\NameToPathConverter.cs" />
     <Compile Include="Converters\RectConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AnimationHelper.cs" />
+    <Compile Include="Helpers\IconHelper.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
     <Compile Include="Layouts\MaterialityGrid.cs" />
     <Compile Include="Layouts\MaterialityGridChildInfo.cs" />
@@ -128,18 +134,11 @@
     <Resource Include="Fonts\Roboto\Roboto-Regular.ttf" />
     <Resource Include="Fonts\Roboto\Roboto-Thin.ttf" />
     <Resource Include="Fonts\Roboto\Roboto-ThinItalic.ttf" />
-    <None Include="Fonts\Icons\materialdesignicons-webfont.eot" />
-    <Resource Include="Fonts\Icons\materialdesignicons-webfont.ttf" />
-    <None Include="Fonts\Icons\materialdesignicons-webfont.woff" />
-    <None Include="Fonts\Icons\materialdesignicons-webfont.woff2" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Fonts\Icons\materialdesignicons-webfont.svg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

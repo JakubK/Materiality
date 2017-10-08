@@ -26,10 +26,12 @@
                     <!--Visible color of unused/skipped space-->
                 </materiality:MaterialityGrid.Background>
 
-                <materiality:RaisedButton Margin="0,0,0,0"  Content="Roboto" 
+                <materiality:RaisedButton Margin="0,0,0,0" 
                 Height="50" FontSize="30"  
                 Background="{StaticResource blue lighten-1}" HoverBrush="{StaticResource blue lighten-2}" RippleBrush="{StaticResource blue lighten-3}" 
-                 Foreground="White" x:Name="btn2"/>
+                 Foreground="White" x:Name="btn2">
+                    <materiality:Icon Type="Account" Height="20" Width="20"/>
+                </materiality:RaisedButton>
                 <materiality:FloatingButton Content="DDD" Width="70" Height="70"  HoverBrush="Red"  FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="White"  x:Name="btn3"/>
                 <materiality:FlatButton  Height="70" FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="Black"  x:Name="btn4"/>
                 <materiality:MaterialRadioButton RippleBrush="Gray" Click="btn5_Checked" Content="Radio Button" Width="50" Background="Gray" Height="50" x:Name="btn5" />
