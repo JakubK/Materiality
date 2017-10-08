@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Materiality.WPF.Classes.Icons
 {
-    public enum Icons
+    public enum IconType
     {
         AccessPoint,
         AccessPointNetwork,
