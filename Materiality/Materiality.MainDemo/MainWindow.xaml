@@ -9,7 +9,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors/Colors.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -34,13 +34,16 @@
                 <materiality:FlatButton  Height="70" FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="Black"  x:Name="btn4"/>
                 <materiality:MaterialRadioButton RippleBrush="Gray" Click="btn5_Checked" Content="Radio Button" Width="50" Background="Gray" Height="50" x:Name="btn5" />
                 <materiality:Switch Click="btn5_Checked" OnBackToggleBrush="Black" OnFrontToggleBrush="LightGreen" OffBackToggleBrush="Gray" OffFrontToggleBrush="LightGray" x:Name="btn6" Height="40" Width="80"/>
-                
-                <materiality:MaterialityGridChildInfo TargetName="btn2" SM="2" LG="2" XL="11"/>
-                <materiality:MaterialityGridChildInfo TargetName="btn3" SM="2" LG="2" XL="5" />
-                <materiality:MaterialityGridChildInfo TargetName="btn4" SM="2" LG="2" XL="2" />
-                <materiality:MaterialityGridChildInfo TargetName="btn5" SM="2" LG="2" XL="2" />
-                <materiality:MaterialityGridChildInfo TargetName="btn6" SM="2" LG="2" XL="2" />
+
+                <materiality:MaterialityGrid.ChildInfos>
+                    <materiality:MaterialityGridChildInfo TargetName="btn2" SM="2" LG="2" XL="11"/>
+                    <materiality:MaterialityGridChildInfo TargetName="btn3" SM="2" LG="2" XL="5" />
+                    <materiality:MaterialityGridChildInfo TargetName="btn4" SM="2" LG="2" XL="2" />
+                    <materiality:MaterialityGridChildInfo TargetName="btn5" SM="2" LG="2" XL="2" />
+                    <materiality:MaterialityGridChildInfo TargetName="btn6" SM="2" LG="2" XL="2" />
+                </materiality:MaterialityGrid.ChildInfos>
             </materiality:MaterialityGrid>
+            
         </ScrollViewer>
     </StackPanel>
 </Window>

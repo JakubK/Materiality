@@ -51,6 +51,8 @@ namespace Materiality.MainDemo
 
         private void btn5_Checked(object sender, RoutedEventArgs e)
         {
+            Window1 window = new Window1();
+            window.Show();
         }
     }
 }

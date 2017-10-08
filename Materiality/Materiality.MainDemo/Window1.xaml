@@ -7,7 +7,12 @@
         xmlns:materiality11="clr-namespace:Materiality.WPF.Controls;assembly=Materiality.WPF"
         mc:Ignorable="d"
         Title="Window1" Height="300" Width="300">
+    <Window.Resources>
+        <FontFamily x:Key="Icons">pack://application:,,,/Fonts/Icons/#materialdesignicons</FontFamily>
+        
+    </Window.Resources>
     <Grid>
-        <materiality11:Ripple Background="Black" Width="100" Height="100"/>
+        <Button x:Name="btn" FontFamily="{StaticResource Icons}" Width="100" Height="100">
+        </Button>
     </Grid>
 </Window>
