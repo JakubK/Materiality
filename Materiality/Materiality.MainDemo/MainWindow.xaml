@@ -15,7 +15,6 @@
     </Window.Resources>
     <StackPanel>
         <materiality:Toolbar Height="50" Background="White" x:Name="btn7">
-            <Button>Test 3</Button>
             <Label>Test 3</Label>
             <Label>Test 3</Label>
         </materiality:Toolbar>
@@ -30,7 +29,7 @@
                 Height="50" FontSize="30"  
                 Background="{StaticResource blue lighten-1}" HoverBrush="{StaticResource blue lighten-2}" RippleBrush="{StaticResource blue lighten-3}" 
                  Foreground="White" x:Name="btn2">
-                    <materiality:Icon Type="Account" Height="20" Width="20"/>
+                    <materiality:Icon Type="Unity" Height="30" Width="30"/>
                 </materiality:RaisedButton>
                 <materiality:FloatingButton Content="DDD" Width="70" Height="70"  HoverBrush="Red"  FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="White"  x:Name="btn3"/>
                 <materiality:FlatButton  Height="70" FontSize="20"  Background="{StaticResource blue accent-1}"  Foreground="Black"  x:Name="btn4"/>

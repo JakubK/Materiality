@@ -32,6 +32,7 @@ namespace Materiality.WPF.Layouts
         private Action<FrameworkElement, int> SetOffset;
 
         protected const int MaxGridCount = 12;
+        private Window parentWindow;
         #endregion
 
         #region Dependency Properites
@@ -51,8 +52,7 @@ namespace Materiality.WPF.Layouts
 
             this.ColumnDefinitions.Clear();
             ChildInfos = new Collection<MaterialityGridChildInfo>();
-           
-            
+                      
             for(int i = 0;i < MaxGridCount;i++)
             {
                 this.ColumnDefinitions.Add(new ColumnDefinition());
@@ -129,9 +129,12 @@ namespace Materiality.WPF.Layouts
         /// </summary>
         private void ReFillMaterialityGrid()
         {
+            if (parentWindow == null)
+                parentWindow = (Window)Window.GetWindow(this);
+            
             try
             {
-                if (ActualWidth > 1200) //Extra Large
+                if (parentWindow.ActualWidth > 1200) //Extra Large
                 {
                     GetCol = (e) => GetInfo(e).XL;
                     SetCol = (e, col) => SetXL(e, GetInfo(e).XL);
@@ -140,7 +143,7 @@ namespace Materiality.WPF.Layouts
                     SetOffset = (e, col) => SetXL_Offset(e, GetInfo(e).XL_Offset);
 
                 }
-                else if (ActualWidth > 992) //Large
+                else if (parentWindow.ActualWidth > 992) //Large
                 {
                     GetCol = (e) => GetInfo(e).LG;
                     SetCol = (e, col) => SetLG(e, GetInfo(e).LG);
@@ -148,7 +151,7 @@ namespace Materiality.WPF.Layouts
                     GetOffset = (e) => GetInfo(e).LG_Offset;
                     SetOffset = (e, col) => SetLG_Offset(e, GetInfo(e).LG_Offset);
                 }
-                else if (ActualWidth > 600) //Medium
+                else if (parentWindow.ActualWidth > 600) //Medium
                 {
                     GetCol = (e) => GetInfo(e).MD;
                     SetCol = (e, col) => SetMD(e, GetInfo(e).MD);
@@ -156,7 +159,7 @@ namespace Materiality.WPF.Layouts
                     GetOffset = (e) => GetInfo(e).MD_Offset;
                     SetOffset = (e, col) => SetMD_Offset(e, GetInfo(e).MD_Offset);
                 }
-                else if (ActualWidth <= 600)  //Small
+                else if (parentWindow.ActualWidth <= 600)  //Small
                 {
                     GetCol = (e) => GetInfo(e).SM;
                     SetCol = (e, col) => SetSM(e, GetInfo(e).SM);
