@@ -19,7 +19,6 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="back" Property="Fill" Value="{Binding OnBackToggleBrush,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:Switch}}}"/>
                             <Setter TargetName="front" Property="Fill" Value="{Binding OnFrontToggleBrush,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:Switch}}}"/>
-
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

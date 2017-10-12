@@ -40,10 +40,13 @@ namespace Materiality.WPF.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            this.Click += MaterialRadioButton_Click;
+            this.AddHandler(MouseDownEvent, new RoutedEventHandler((o, e) =>
+            {
+                MaterialRadioButton_Animate(o, e);
+            }), true);
         }
 
-        private void MaterialRadioButton_Click(object sender, RoutedEventArgs e)
+        private void MaterialRadioButton_Animate(object sender, RoutedEventArgs e)
         {
             this.IsChecked = !IsChecked;
             Ripple ripple = GetTemplateChild("Ripple") as Ripple;

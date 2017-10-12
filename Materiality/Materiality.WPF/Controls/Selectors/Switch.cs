@@ -56,7 +56,10 @@ namespace Materiality.WPF.Controls
             storyboard = new Storyboard();
             toggle = GetTemplateChild("holder") as Grid;
 
-            this.Click += Switch_Click;
+            this.AddHandler(MouseDownEvent,new RoutedEventHandler((o,e) =>
+                {
+                    Switch_Animate(o, e);
+                }),true);
 
         }
 
@@ -72,7 +75,7 @@ namespace Materiality.WPF.Controls
 
         private bool canAnimate = true;
 
-        private void Switch_Click(object sender, RoutedEventArgs e)
+        private void Switch_Animate(object sender, RoutedEventArgs e)
         {
             if (canAnimate)
             {
@@ -84,7 +87,10 @@ namespace Materiality.WPF.Controls
                     double desiredMargin;
                     canAnimate = false;
                     storyboard = new Storyboard();
-                    storyboard.Completed += Storyboard_Completed;
+                    storyboard.Completed += (o, eg) =>
+                    {
+                        canAnimate = true;
+                    };
 
                     if (IsChecked)
                     {
@@ -120,16 +126,6 @@ namespace Materiality.WPF.Controls
                     }
                 }
             }
-            else
-            {
-                storyboard.Stop();
-                storyboard.Begin();
-            }
-        }
-
-        private void Storyboard_Completed(object sender, EventArgs e)
-        {
-            canAnimate = true;
         }
     }
 }
