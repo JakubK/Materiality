@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -36,10 +37,10 @@ namespace Materiality.WPF.Layouts
         #endregion
 
         #region Dependency Properites
-        public static readonly DependencyProperty ChildInfosProperty = DependencyProperty.Register("ChildInfos", typeof(Collection<MaterialityGridChildInfo>), typeof(MaterialityGrid), new FrameworkPropertyMetadata());
-        public Collection<MaterialityGridChildInfo> ChildInfos
+        public static readonly DependencyProperty ChildInfosProperty = DependencyProperty.Register("ChildInfos", typeof(List<MaterialityGridChildInfo>), typeof(MaterialityGrid), new PropertyMetadata());
+        public List<MaterialityGridChildInfo> ChildInfos
         {
-            get { return (Collection<MaterialityGridChildInfo>)GetValue(ChildInfosProperty); }
+            get { return (List<MaterialityGridChildInfo>)GetValue(ChildInfosProperty); }
             set { SetValue(ChildInfosProperty, value); }
         }
         #endregion
@@ -51,7 +52,7 @@ namespace Materiality.WPF.Layouts
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             this.ColumnDefinitions.Clear();
-            ChildInfos = new Collection<MaterialityGridChildInfo>();
+            ChildInfos = new List<MaterialityGridChildInfo>();
                       
             for(int i = 0;i < MaxGridCount;i++)
             {
@@ -129,6 +130,9 @@ namespace Materiality.WPF.Layouts
         /// </summary>
         private void ReFillMaterialityGrid()
         {
+            if (DesignerProperties.GetIsInDesignMode(this))
+                return;
+
             if (parentWindow == null)
                 parentWindow = (Window)Window.GetWindow(this);
             
