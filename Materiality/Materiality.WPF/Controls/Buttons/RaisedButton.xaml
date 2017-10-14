@@ -18,21 +18,9 @@
                             <DropShadowEffect Direction="-90" BlurRadius="10" ShadowDepth="1"/>
                         </Border.Effect>
                         <Grid>
-                            <Border >   
-                                <Border.Clip> <!--Border Clip and it's content is required for proper Ripple workflow--> 
-                                    <RectangleGeometry x:Name="rect">
-                                        <RectangleGeometry.Rect>
-                                            <MultiBinding Converter="{StaticResource Converter}">
-                                                <Binding ElementName="btnBorder" Path="ActualWidth"/>
-                                                <Binding ElementName="btnBorder" Path="ActualHeight"/>
-                                            </MultiBinding>
-                                        </RectangleGeometry.Rect>
-                                    </RectangleGeometry>
-                                </Border.Clip>
-                                <local:Ripple Margin="-50"  ClipToBounds="True" HorizontalAlignment="Center"  VerticalAlignment="Center" RippleColor="{TemplateBinding RippleBrush}" x:Name="Ripple"/>
-                            </Border>
-                            <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
+                            <local:Ripple Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" RippleColor="{TemplateBinding RippleBrush}"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

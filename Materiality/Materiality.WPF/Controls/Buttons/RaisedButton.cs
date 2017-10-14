@@ -42,13 +42,6 @@ namespace Materiality.WPF.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            this.Click += MaterialButton_Click;
-        }
-
-        private void MaterialButton_Click(object sender, RoutedEventArgs e)
-        {
-            Ripple ripple = GetTemplateChild("Ripple") as Ripple;
-            ripple.ScaleUpRipple();
         }
     }
 }
