@@ -9,13 +9,15 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Icon}">
-                    <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Fill">
-                        <Path HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" Fill="{TemplateBinding Fill}" Data="{TemplateBinding Type,Converter={StaticResource Converter}}">
-                            <Path.RenderTransform>
-                                <ScaleTransform ScaleY="-1"/>
-                            </Path.RenderTransform>
-                        </Path>
-                    </Viewbox>
+                    <Grid>
+                        <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Stretch="Fill">
+                            <Path HorizontalAlignment="Center" RenderTransformOrigin="0.5, 0.5" VerticalAlignment="Center" Fill="{TemplateBinding Fill}" Data="{TemplateBinding Type,Converter={StaticResource Converter}}">
+                                <Path.RenderTransform>
+                                    <ScaleTransform ScaleY="-1"/>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Viewbox>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

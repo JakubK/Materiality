@@ -38,10 +38,6 @@ namespace Materiality.WPF.Controls
         public Icon()
         {
             IconPath = new Path();
-            //Path path = new Path();
-            //string sData = "M 250,40 L200,20 L200,60 Z";
-            //var converter = TypeDescriptor.GetConverter(typeof(Geometry));
-            //path.Data = (Geometry)converter.ConvertFrom(sData);
         }
     }
 }
