@@ -42,15 +42,8 @@ namespace Materiality.WPF.Controls
             base.OnApplyTemplate();
             this.AddHandler(MouseDownEvent, new RoutedEventHandler((o, e) =>
             {
-                MaterialRadioButton_Animate(o, e);
+                this.IsChecked = !IsChecked;
             }), true);
-        }
-
-        private void MaterialRadioButton_Animate(object sender, RoutedEventArgs e)
-        {
-            this.IsChecked = !IsChecked;
-            Ripple ripple = GetTemplateChild("Ripple") as Ripple;
-            ripple.ScaleUpRipple();
         }
     }
 }

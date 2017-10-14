@@ -36,6 +36,5 @@ namespace Materiality.WPF.Controls
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(FlatButton), new FrameworkPropertyMetadata(typeof(FlatButton)));
         }
-
     }
 }

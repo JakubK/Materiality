@@ -13,15 +13,14 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Grid Height="{TemplateBinding Height}" Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
-                            <local:Ripple Margin="-50"  ClipToBounds="True" HorizontalAlignment="Center"  VerticalAlignment="Center" RippleColor="{TemplateBinding RippleBrush}" x:Name="Ripple"/>
-                            <Ellipse x:Name="Out" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"  Fill="Transparent" Stroke="{TemplateBinding Background}" StrokeThickness="3" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"  >
+                            <Grid Height="{TemplateBinding Height}" Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}">
+                                <Ellipse x:Name="Out" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center"  Fill="Transparent" Stroke="{TemplateBinding Background}" StrokeThickness="3" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"  >
 
-                            </Ellipse>
-                            <Ellipse x:Name="Center" HorizontalAlignment="Center" Width="25" Height="25" Margin="0" VerticalAlignment="Center" Fill="{TemplateBinding Background}">
+                                </Ellipse>
+                                <Ellipse x:Name="Center" HorizontalAlignment="Center" Width="25" Height="25" Margin="0" VerticalAlignment="Center" Fill="{TemplateBinding Background}">
 
-                            </Ellipse>
-                        </Grid>
+                                </Ellipse>
+                            </Grid>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="False">
@@ -31,7 +30,6 @@
                             <Setter Property="Fill" TargetName="Center" Value="{Binding ActiveBrush,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:MaterialRadioButton}}}"/>
                             <Setter Property="Stroke" TargetName="Out"  Value="{Binding ActiveBrush,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:MaterialRadioButton}}}"/>
                         </Trigger>
-
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
