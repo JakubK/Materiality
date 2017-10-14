@@ -5,9 +5,24 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Ripple}">
-                    <Ellipse Width="{Binding ActualWidth,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:Ripple}}}" Height="{Binding Path=Width,RelativeSource= {RelativeSource Self}}" Fill="{Binding RippleColor,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type local:Ripple}}}" VerticalAlignment="Top"  HorizontalAlignment="Left" >
-
-                    </Ellipse>
+                    <Grid x:Name="grid" ClipToBounds="True" Background="Transparent"
+                           VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Ellipse x:Name="ellipse"
+                                 Fill="{Binding Path=RippleColor,RelativeSource={RelativeSource TemplatedParent}}"
+                                 Width="0" Height="{Binding Path=Width,RelativeSource={RelativeSource Self}}"
+                                 HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <Grid.Resources>
+                            <Storyboard x:Key="anim" Storyboard.TargetName="ellipse">
+                                <DoubleAnimation Storyboard.TargetProperty="Width" From="0"/>
+                                <ThicknessAnimation Storyboard.TargetProperty="Margin"/>
+                                <DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.25" Storyboard.TargetProperty="Opacity"
+                                                 From="1" To="0"/>
+                                
+                                <DoubleAnimation Storyboard.TargetProperty="Width" To="0" BeginTime="0:0:1.25" Duration="0:0:0"/>
+                                <DoubleAnimation BeginTime="0:0:1.25" Duration="0:0:0" Storyboard.TargetProperty="Opacity" To="1"/>
+                            </Storyboard>
+                        </Grid.Resources>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

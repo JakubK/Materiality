@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Shapes;
 
 namespace Materiality.WPF.Controls
 {
@@ -28,82 +30,28 @@ namespace Materiality.WPF.Controls
             set { SetValue(RippleColorProperty, value); }
         }
 
-        bool canAnimate = true;
-
-        private Storyboard storyboard;
+        Ellipse ellipse;
+        Storyboard animation;
 
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            storyboard = new Storyboard();
-        }
 
-        public void ScaleUpRipple()
-        {
-            if (canAnimate)
-            {
-                FrameworkElement parent = (FrameworkElement)this.Parent;
+            ellipse = GetTemplateChild("ellipse") as Ellipse;
+            animation = (GetTemplateChild("grid") as Grid).FindResource("anim") as Storyboard;
 
-                if (parent != null)
-                {
-                    canAnimate = false;
-                    var fade = new DoubleAnimation
-                    {
-                        From = 0,
-                        To = parent.ActualWidth * 1.5f,
-                        Duration = TimeSpan.FromSeconds(0.5f),
-                        BeginTime = TimeSpan.FromSeconds(0f)
-                    };
-                    var fade1 = new DoubleAnimation
-                    {
-                        From = this.Opacity,
-                        To = 0.0,
-                        Duration = TimeSpan.FromSeconds(0.5f),
-                        BeginTime = TimeSpan.FromSeconds(0f)
-                    };
-                    storyboard = new Storyboard();
-                    Storyboard.SetTarget(fade, this);
-                    Storyboard.SetTargetProperty(fade, new PropertyPath(FrameworkElement.WidthProperty));
+            this.AddHandler(MouseDownEvent, new RoutedEventHandler((sender, e) =>
+             {
+                 var targetWidth = Math.Max(DesiredSize.Width, DesiredSize.Height) * 2;
+                 var mousePosition = (e as MouseButtonEventArgs).GetPosition(this);
+                 var startMargin = new Thickness(mousePosition.X, mousePosition.Y, 0, 0);
+                 ellipse.Margin = startMargin;
 
-                    Storyboard.SetTarget(fade1, this);
-                    Storyboard.SetTargetProperty(fade1, new PropertyPath(FrameworkElement.OpacityProperty));
-
-                    storyboard.Children.Add(fade);
-                    storyboard.Children.Add(fade1);
-
-                    storyboard.Completed += ReverseOpacity;
-
-                    fade.AutoReverse = true;
-                    storyboard.Begin();
-                }
-            }
-            else
-            {
-                storyboard.Stop();
-                storyboard.Begin();
-            }
-        }
-
-        private void ReverseOpacity(object sender, EventArgs e)
-        {
-            var fade2 = new DoubleAnimation
-            {
-                From = this.Opacity,
-                To = 1.0,
-                Duration = TimeSpan.FromMilliseconds(1f),
-                BeginTime = TimeSpan.FromMilliseconds(1f)
-            };
-            storyboard = new Storyboard();
-            Storyboard.SetTarget(fade2, this);
-            Storyboard.SetTargetProperty(fade2, new PropertyPath(FrameworkElement.OpacityProperty));
-            storyboard.Children.Add(fade2);
-            storyboard.Completed += ToggleAnimation;
-            storyboard.Begin();
-        }
-
-        private void ToggleAnimation(object sender, EventArgs e)
-        {
-            canAnimate = true;
+                 (animation.Children[0] as DoubleAnimation).To = targetWidth;
+                 (animation.Children[1] as ThicknessAnimation).From = startMargin;
+                 (animation.Children[1] as ThicknessAnimation).To = new Thickness(mousePosition.X - targetWidth / 2, mousePosition.Y - targetWidth / 2, 0, 0);
+                 ellipse.BeginStoryboard(animation);
+             }), true);
         }
     }
 }
