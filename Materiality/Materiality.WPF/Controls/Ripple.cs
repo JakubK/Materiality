@@ -23,6 +23,20 @@ namespace Materiality.WPF.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Ripple), new FrameworkPropertyMetadata(typeof(Ripple)));
         }
 
+        public static readonly DependencyProperty GrowSpeedProperty = DependencyProperty.Register("GrowSpeed", typeof(Duration), typeof(Ripple), new PropertyMetadata(new Duration(TimeSpan.FromSeconds(0.5))));
+        public Duration GrowSpeed
+        {
+            get { return (Duration)GetValue(GrowSpeedProperty); }
+            set { SetValue(GrowSpeedProperty, value); }
+        }
+
+        public static readonly DependencyProperty FadeSpeedProperty = DependencyProperty.Register("FadeSpeed", typeof(Duration), typeof(Ripple), new PropertyMetadata(new Duration(TimeSpan.FromSeconds(0.25))));
+        public Duration FadeSpeed
+        {
+            get { return (Duration)GetValue(FadeSpeedProperty); }
+            set { SetValue(FadeSpeedProperty, value); }
+        }
+
         public static readonly DependencyProperty RippleColorProperty = DependencyProperty.Register("RippleColor", typeof(Brush), typeof(Ripple), new FrameworkPropertyMetadata(Brushes.White));
         public Brush RippleColor
         {
@@ -33,6 +47,7 @@ namespace Materiality.WPF.Controls
         Ellipse ellipse;
         Storyboard animation;
 
+        
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
