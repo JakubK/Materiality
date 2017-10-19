@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Shapes;
 
 namespace Materiality.WPF.Controls
 {
@@ -60,14 +61,16 @@ namespace Materiality.WPF.Controls
                 {
                     Switch_Animate(o, e);
                 }),true);
-
         }
 
         public new static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register("IsChecked", typeof(bool), typeof(Switch), new FrameworkPropertyMetadata(false));
         public new bool IsChecked
         {
             get { return (bool)GetValue(IsCheckedProperty); }
-            set { SetValue(IsCheckedProperty, value); }
+            set
+            {
+                SetValue(IsCheckedProperty, value);
+            }
         }
 
         private Storyboard storyboard;

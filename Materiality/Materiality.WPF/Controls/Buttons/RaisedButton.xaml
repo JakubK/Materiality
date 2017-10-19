@@ -1,15 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Materiality.WPF.Controls"
-                    xmlns:convert="clr-namespace:Materiality.WPF.Converters">
+                    xmlns:local="clr-namespace:Materiality.WPF.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors/Colors.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     <FontFamily x:Key="Roboto">pack://application:,,,/Fonts/Roboto/#Roboto-Regular</FontFamily>
     <Style TargetType="{x:Type local:RaisedButton}">
-        <Style.Resources>
-            <convert:RectConverter x:Key="Converter"/>
-        </Style.Resources>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:RaisedButton}">
@@ -20,7 +16,7 @@
                         <Grid>
                             <local:Ripple Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" RippleColor="{TemplateBinding RippleBrush}"/>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </Grid>
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">

@@ -10,7 +10,7 @@
                             <DropShadowEffect Direction="-90" BlurRadius="10" ShadowDepth="1"/>
                         </Border.Effect>
                         <Grid>
-                            <local:Ripple Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" RippleColor="{TemplateBinding RippleBrush}"/>
+                            <local:Ripple Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource TemplatedParent}}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" RippleColor="{TemplateBinding RippleBrush}"/>
                             <ContentPresenter HorizontalAlignment="Center" IsHitTestVisible="False" VerticalAlignment="Center"/>
                         </Grid>
                     </Border>

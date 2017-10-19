@@ -51,7 +51,6 @@ namespace Materiality.WPF.Controls
             this.AddHandler(MouseDownEvent, new RoutedEventHandler((o, e) =>
             {
                 IsChecked = !IsChecked;
-                Debug.WriteLine(IsChecked);
             }), true);
         }
     }
