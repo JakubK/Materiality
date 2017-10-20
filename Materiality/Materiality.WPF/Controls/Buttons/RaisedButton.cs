@@ -34,6 +34,41 @@ namespace Materiality.WPF.Controls
             set { SetValue(RippleBrushProperty, value); }
         }
 
+        public static DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(RaisedButton), new UIPropertyMetadata(new CornerRadius(2.0)));
+        public CornerRadius CornerRadius
+        {
+            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShadowBrushProperty = DependencyProperty.Register("ShadowBrush", typeof(Brush), typeof(RaisedButton), new UIPropertyMetadata(Brushes.Black));
+        public Brush ShadowBrush
+        {
+            get { return (Brush)GetValue(ShadowBrushProperty); }
+            set { SetValue(ShadowBrushProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShadowDirectionProperty = DependencyProperty.Register("ShadowDirection", typeof(double), typeof(RaisedButton), new FrameworkPropertyMetadata(-90.0));
+        public double ShadowDirection
+        {
+            get { return (double)GetValue(ShadowDirectionProperty); }
+            set { SetValue(ShadowDirectionProperty, value); }
+        }
+
+        public static readonly DependencyProperty BlurRadiusProperty = DependencyProperty.Register("BlurRadius", typeof(double), typeof(RaisedButton), new FrameworkPropertyMetadata(10.0));
+        public double BlurRadius
+        {
+            get { return (double)GetValue(BlurRadiusProperty); }
+            set { SetValue(BlurRadiusProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShadowDepthProperty = DependencyProperty.Register("ShadowDepth", typeof(double), typeof(RaisedButton), new FrameworkPropertyMetadata(1.0));
+        public double ShadowDepth
+        {
+            get { return (double)GetValue(ShadowDepthProperty); }
+            set { SetValue(ShadowDepthProperty, value); }
+        }
+
         static RaisedButton()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(RaisedButton), new FrameworkPropertyMetadata(typeof(RaisedButton)));
@@ -43,5 +78,6 @@ namespace Materiality.WPF.Controls
         {
             base.OnApplyTemplate();
         }
+
     }
 }
