@@ -26,8 +26,6 @@ namespace Materiality.WPF.Controls
             set { SetValue(OffBackToggleBrushProperty, value); }
         }
 
-
-
         public static readonly DependencyProperty OffFrontToggleBrushProperty = DependencyProperty.Register("OffFrontToggleBrush", typeof(Brush), typeof(Switch), new UIPropertyMetadata(Brushes.White));
         public Brush OffFrontToggleBrush
         {
@@ -54,8 +52,9 @@ namespace Materiality.WPF.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            storyboard = new Storyboard();
-            toggle = GetTemplateChild("holder") as Grid;
+
+            toLeft = (GetTemplateChild("grid") as Grid).FindResource("switchLeft") as Storyboard;
+            toRight = (GetTemplateChild("grid") as Grid).FindResource("switchRight") as Storyboard;
 
             this.AddHandler(MouseDownEvent,new RoutedEventHandler((o,e) =>
                 {
@@ -73,62 +72,22 @@ namespace Materiality.WPF.Controls
             }
         }
 
-        private Storyboard storyboard;
-        Grid toggle;
-
-        private bool canAnimate = true;
+        private Storyboard toRight;
+        private Storyboard toLeft;
 
         private void Switch_Animate(object sender, RoutedEventArgs e)
         {
-            if (canAnimate)
-            {
                 IsChecked = !IsChecked;
-
-                //Perform ToggleAnimation
-                if (toggle != null)
+                if(!IsChecked)
                 {
-                    double desiredMargin;
-                    canAnimate = false;
-                    storyboard = new Storyboard();
-                    storyboard.Completed += (o, eg) =>
-                    {
-                        canAnimate = true;
-                    };
+                    toLeft.Begin();
 
-                    if (IsChecked)
-                    {
-                        desiredMargin = this.ActualWidth - toggle.ActualWidth;
-                        var toRight = new ThicknessAnimation
-                        {
-                            From = new Thickness(0, 0, 0, 0),
-                            To = new Thickness(desiredMargin, 0, 0, 0),
-                            Duration = TimeSpan.FromSeconds(0.5f),
-                            BeginTime = TimeSpan.FromSeconds(0.0f)
-                        };
-
-                        storyboard.Children.Add(toRight);
-                        Storyboard.SetTarget(toRight, toggle);
-                        Storyboard.SetTargetProperty(toRight, new PropertyPath(FrameworkElement.MarginProperty));
-                        storyboard.Begin();
-                    }
-                    else
-                    {
-                        desiredMargin = 0;
-                        var toLeft = new ThicknessAnimation
-                        {
-                            From = new Thickness(toggle.Margin.Left, 0, 0, 0),
-                            To = new Thickness(0, 0, 0, 0),
-                            Duration = TimeSpan.FromSeconds(0.5f),
-                            BeginTime = TimeSpan.FromSeconds(0.0f)
-                        };
-
-                        storyboard.Children.Add(toLeft);
-                        Storyboard.SetTarget(toLeft, toggle);
-                        Storyboard.SetTargetProperty(toLeft, new PropertyPath(FrameworkElement.MarginProperty));
-                        storyboard.Begin();
-                    }
                 }
-            }
+                else
+                {
+                    toRight.Begin();
+
+                }
         }
     }
 }
