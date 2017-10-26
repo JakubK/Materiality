@@ -9,6 +9,9 @@ using System.Windows.Markup;
 
 namespace Materiality.WPF.Controls
 {
+    /// <summary>
+    /// Is meant to be aligned to top or bottom
+    /// </summary>
     public class Toolbar : ItemsControl
     {
         static Toolbar()
