@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Materiality.WPF.Converters;
 
 namespace Materiality.WPF.Controls
 {
@@ -56,10 +57,20 @@ namespace Materiality.WPF.Controls
             toLeft = (GetTemplateChild("grid") as Grid).FindResource("switchLeft") as Storyboard;
             toRight = (GetTemplateChild("grid") as Grid).FindResource("switchRight") as Storyboard;
 
-            this.AddHandler(MouseDownEvent,new RoutedEventHandler((o,e) =>
-                {
-                    Switch_Animate(o, e);
-                }),true);
+            this.AddHandler(MouseDownEvent, new RoutedEventHandler((o, e) =>
+                 {
+                     Switch_Animate(o, e);
+                 }), true);
+
+            this.Loaded += Switch_Loaded;
+        }
+
+        private void Switch_Loaded(object sender, RoutedEventArgs e)
+        {
+           if(IsChecked)
+            {
+                (GetTemplateChild("front") as Ellipse).Margin = new Thickness(this.ActualWidth - (GetTemplateChild("front") as Ellipse).ActualWidth, 0, 0, 0);
+            }
         }
 
         public new static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register("IsChecked", typeof(bool), typeof(Switch), new FrameworkPropertyMetadata(false));
@@ -81,11 +92,10 @@ namespace Materiality.WPF.Controls
                 if(!IsChecked)
                 {
                     toLeft.Begin();
-
                 }
                 else
                 {
-                    toRight.Begin();
+                   toRight.Begin();
 
                 }
         }
