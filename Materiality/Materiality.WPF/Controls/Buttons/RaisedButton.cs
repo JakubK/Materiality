@@ -41,12 +41,6 @@ namespace Materiality.WPF.Controls
             set { SetValue(CornerRadiusProperty, value); }
         }
 
-        public static readonly DependencyProperty ShadowBrushProperty = DependencyProperty.Register("ShadowBrush", typeof(Brush), typeof(RaisedButton), new UIPropertyMetadata(Brushes.Black));
-        public Brush ShadowBrush
-        {
-            get { return (Brush)GetValue(ShadowBrushProperty); }
-            set { SetValue(ShadowBrushProperty, value); }
-        }
 
         public static readonly DependencyProperty ShadowDirectionProperty = DependencyProperty.Register("ShadowDirection", typeof(double), typeof(RaisedButton), new FrameworkPropertyMetadata(-90.0));
         public double ShadowDirection

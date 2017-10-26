@@ -11,7 +11,7 @@
                 <ControlTemplate TargetType="{x:Type local:RaisedButton}">
                     <Border Opacity="1" Name="btnBorder" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
                         <Border.Effect>
-                            <DropShadowEffect Color="{Binding ShadowColor,RelativeSource={RelativeSource TemplatedParent}}" Direction="{Binding ShadowDirection,RelativeSource={RelativeSource TemplatedParent}}" BlurRadius="{Binding BlurRadius,RelativeSource={RelativeSource TemplatedParent}}" ShadowDepth="{Binding ShadowDepth,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <DropShadowEffect Color="Black" Direction="{Binding ShadowDirection,RelativeSource={RelativeSource TemplatedParent}}" BlurRadius="{Binding BlurRadius,RelativeSource={RelativeSource TemplatedParent}}" ShadowDepth="{Binding ShadowDepth,RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Border.Effect>
                         <Grid>
                             <local:Ripple Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" RippleColor="{TemplateBinding RippleBrush}"/>
