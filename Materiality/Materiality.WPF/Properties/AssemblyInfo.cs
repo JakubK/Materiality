@@ -42,6 +42,7 @@ using System.Windows.Markup;
 )]
 
 [assembly: XmlnsDefinition("http://materiality.wpf", "Materiality.WPF.Controls")]
+[assembly: XmlnsDefinition("http://materiality.wpf", "Materiality.WPF.Controls.Navigation")]
 [assembly: XmlnsDefinition("http://materiality.wpf", "Materiality.WPF.Layouts")]
 
 // Informacje o wersji zestawu zawierają następujące cztery wartości:
