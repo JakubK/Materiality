@@ -1,5 +1,6 @@
 ﻿using Materiality.WPF.Layouts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Materiality.Tests
             //arrange
             MaterialityGrid grid = new MaterialityGrid();
             //act
-            
+
             //assert
         }
     }

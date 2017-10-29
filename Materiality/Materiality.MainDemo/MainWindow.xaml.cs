@@ -30,7 +30,6 @@ namespace Materiality.MainDemo
 
         private void DemoGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            
             if (demoGrid.ActualWidth > 1200) //Extra Large
             {
                 this.Title = "Extra Large";
@@ -60,6 +59,7 @@ namespace Materiality.MainDemo
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
+            Side.IsActive = !Side.IsActive;
         }
     }
 }

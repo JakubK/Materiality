@@ -85,10 +85,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Fonts\materialdesignicons-webfont.eot" />
-    <Resource Include="Fonts\materialdesignicons-webfont.ttf" />
-    <None Include="Fonts\materialdesignicons-webfont.woff" />
-    <None Include="Fonts\materialdesignicons-webfont.woff2" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,9 +98,6 @@
       <Project>{90aa7da7-c843-4d9b-8996-11d7b52a260f}</Project>
       <Name>Materiality.WPF</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Fonts\materialdesignicons-webfont.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

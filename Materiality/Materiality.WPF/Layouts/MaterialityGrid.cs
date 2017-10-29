@@ -37,10 +37,10 @@ namespace Materiality.WPF.Layouts
         #endregion
 
         #region Dependency Properites
-        public static readonly DependencyProperty ChildInfosProperty = DependencyProperty.Register("ChildInfos", typeof(List<MaterialityGridChildInfo>), typeof(MaterialityGrid), new PropertyMetadata());
-        public List<MaterialityGridChildInfo> ChildInfos
+        public static readonly DependencyProperty ChildInfosProperty = DependencyProperty.Register("ChildInfos", typeof(ObservableCollection<MaterialityGridChildInfo>), typeof(MaterialityGrid), new PropertyMetadata());
+        public ObservableCollection<MaterialityGridChildInfo> ChildInfos
         {
-            get { return (List<MaterialityGridChildInfo>)GetValue(ChildInfosProperty); }
+            get { return (ObservableCollection<MaterialityGridChildInfo>)GetValue(ChildInfosProperty); }
             set { SetValue(ChildInfosProperty, value); }
         }
         #endregion
@@ -52,7 +52,7 @@ namespace Materiality.WPF.Layouts
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             this.ColumnDefinitions.Clear();
-            ChildInfos = new List<MaterialityGridChildInfo>();
+            ChildInfos = new ObservableCollection<MaterialityGridChildInfo>();
                       
             for(int i = 0;i < MaxGridCount;i++)
             {

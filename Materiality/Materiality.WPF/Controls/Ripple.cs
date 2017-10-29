@@ -46,7 +46,6 @@ namespace Materiality.WPF.Controls
 
         Ellipse ellipse;
         Storyboard animation;
-
         
         public override void OnApplyTemplate()
         {
