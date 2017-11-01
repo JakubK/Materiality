@@ -14,8 +14,8 @@
 
 
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Toolbar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Navigation/Sidebar.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Controls/Icons/Icon.xaml"/>
-
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
