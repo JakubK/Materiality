@@ -1,0 +1,99 @@
+﻿<Window x:Class="Materiality.MainDemo.DemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mtrlty="http://materiality.wpf"
+        mc:Ignorable="d"
+        Title="DemoWindow" Height="600" Width="1000">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Materiality.WPF;component/Colors/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel VerticalAlignment="Stretch">
+        <mtrlty:Toolbar Margin="10" Background="{StaticResource deep-purple darken-1}" Height="50">
+            <mtrlty:RaisedButton x:Name="sidebarToggle" RippleBrush="Transparent" HoverBrush="Transparent" Click="sidebarToggle_Click" Margin="10,7,0,0" Height="20" Width="20" FontSize="16" Foreground="White">
+                <mtrlty:Icon Type="Menu" Fill="White"/>
+            </mtrlty:RaisedButton>
+            <Label x:Name="SectionLbl" FontSize="15" Margin="15,0,0,0" Foreground="White">Grid</Label>
+        </mtrlty:Toolbar>
+        <Grid>
+            <Grid VerticalAlignment="Stretch" Margin="10">
+                <ScrollViewer Height="400" VerticalScrollBarVisibility="Hidden" VerticalAlignment="Stretch" >
+                <mtrlty:MaterialityGrid x:Name="grid" Background="Gray">
+                    <mtrlty:FlowTextBlock x:Name="flow" VerticalAlignment="Center" HorizontalAlignment="Center" Height="100" Text="MaterialityGrid allows you to arrange elements in similar way you do it with CSS Grid"/>
+                    <mtrlty:MaterialityGrid Background="Black" x:Name="subGrid">
+                        <Border Background="Blue" Height="50" x:Name="first">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="6* Column"/>
+                        </Border>
+                        <Border Background="Red" Height="50" x:Name="second">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="6* Column"/>
+                        </Border>
+
+                        <Border Background="Green" Height="50" x:Name="third">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="12* Column"/>
+                        </Border>
+                        <mtrlty:FlowTextBlock Foreground="White" x:Name="flow1" Height="100" Text="You can change column layout according to the Window Width (try to resize the window)"/>
+
+                        <Border Background="Blue" Height="50" x:Name="first1">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="Column"/>
+                        </Border>
+                        <Border Background="Red" Height="50" x:Name="second1">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="Column"/>
+                        </Border>
+
+                        <Border Background="Green" Height="50" x:Name="third1">
+                            <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="Column"/>
+                        </Border>
+
+                    <mtrlty:FlowTextBlock Foreground="White" x:Name="flow2" Height="100" Text="Depending on Window's Width, you can also define some offsets between elements in a row"/>
+
+                    <Border Background="Blue" Height="50" x:Name="first2">
+                        <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="3* Column"/>
+                    </Border>
+                    <Border Background="Red" Height="50" x:Name="second2">
+                        <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="1 offset 3* Column"/>
+                    </Border>
+
+                    <Border Background="Green" Height="50" x:Name="third2">
+                        <TextBlock HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center" Text="1 offset 4* Column"/>
+                    </Border>
+
+                    <mtrlty:MaterialityGrid.ChildInfos>
+                            <mtrlty:MaterialityGridChildInfo TargetName="first" XL="6" SM="6" MD="6" LG="6"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="second"  XL="6" SM="6" MD="6" LG="6"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="third"  XL="12" SM="12" MD="12" LG="12"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="flow1" XL="12" SM="12" MD="12" LG="12"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="first1" XL="12" SM="12" MD="4" LG="6"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="second1"  XL="12" SM="12" MD="4" LG="6"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="third1"  XL="12" SM="12" MD="4" LG="12"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="flow2" XL="12" SM="12" MD="12" LG="12"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="first2" XL="3" SM="3" MD="3" LG="3"/>
+                            <mtrlty:MaterialityGridChildInfo TargetName="second2" XL_Offset="1" SM_Offset="1" MD_Offset="1" LG_Offset="1"  XL="3" SM="3" MD="3" LG="3"/>
+                        <mtrlty:MaterialityGridChildInfo TargetName="third2" XL_Offset="1" SM_Offset="1" MD_Offset="1" LG_Offset="1"  XL="4" SM="4" MD="4" LG="4"/>
+
+                    </mtrlty:MaterialityGrid.ChildInfos>
+                    </mtrlty:MaterialityGrid>
+
+                    <mtrlty:MaterialityGrid.ChildInfos>
+                        <mtrlty:MaterialityGridChildInfo TargetName="flow" XL="12" SM="12" MD="12" LG="12"/>
+                        <mtrlty:MaterialityGridChildInfo TargetName="subGrid" XL="12" SM="12" MD="12" LG="12"/>
+                    </mtrlty:MaterialityGrid.ChildInfos>
+
+                </mtrlty:MaterialityGrid>
+            </ScrollViewer>
+        </Grid>
+        <mtrlty:Sidebar Orientation="Left" HorizontalAlignment="Left" x:Name="sidebar" Background="White" Width="150"  >
+                    <StackPanel Orientation="Vertical" Margin="5" VerticalAlignment="Top" >
+                    <mtrlty:RaisedButton Background="{StaticResource deep-purple darken-3}" HoverBrush="{StaticResource deep-purple darken-2}" RippleBrush="{StaticResource deep-purple lighten-2}" Foreground="White" Height="50" Margin="0,10,0,0" Content="Grid" Click="SectionButton_Click"/>
+                    <mtrlty:RaisedButton Background="{StaticResource deep-purple darken-3}"  HoverBrush="{StaticResource deep-purple darken-2}" RippleBrush="{StaticResource deep-purple lighten-2}" Foreground="White" Height="50" Margin="0,10,0,0" Content="???" Click="SectionButton_Click"/>
+                    <mtrlty:RaisedButton Background="{StaticResource deep-purple darken-3}"  HoverBrush="{StaticResource deep-purple darken-2}" RippleBrush="{StaticResource deep-purple lighten-2}" Foreground="White" Height="50" Margin="0,10,0,0" Content="???" Click="SectionButton_Click"/>
+                    <mtrlty:RaisedButton Background="{StaticResource deep-purple darken-3}"  HoverBrush="{StaticResource deep-purple darken-2}" RippleBrush="{StaticResource deep-purple lighten-2}" Foreground="White" Height="50" Margin="0,10,0,0" Content="???" Click="SectionButton_Click"/>
+                    </StackPanel>
+                </mtrlty:Sidebar>
+            </Grid>
+    </StackPanel>
+</Window>

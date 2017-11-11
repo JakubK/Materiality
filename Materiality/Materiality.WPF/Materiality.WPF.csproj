@@ -91,6 +91,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Typography\FlowTextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,13 +104,13 @@
     <Compile Include="Controls\Buttons\FloatingButton.cs" />
     <Compile Include="Controls\Icons\Icon.cs" />
     <Compile Include="Controls\Navigation\Sidebar.cs" />
-    <Compile Include="Controls\Selectors\DropdownButton.cs" />
     <Compile Include="Controls\Selectors\MaterialRadioButton.cs" />
     <Compile Include="Controls\Buttons\RaisedButton.cs" />
     <Compile Include="Controls\Ripple.cs" />
     <Compile Include="Controls\Selectors\Switch.cs" />
     <Compile Include="Controls\Selectors\ToggleButton.cs" />
     <Compile Include="Controls\Toolbar.cs" />
+    <Compile Include="Controls\Typography\FlowTextBlock.cs" />
     <Compile Include="Converters\DesiredMarginConverter.cs" />
     <Compile Include="Converters\DurationSumConverter.cs" />
     <Compile Include="Converters\NameToPathConverter.cs" />
