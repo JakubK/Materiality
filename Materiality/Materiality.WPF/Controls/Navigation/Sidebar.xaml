@@ -40,8 +40,8 @@
                                 </ThicknessAnimation>
                             </Storyboard>
                         </Border.Resources>
-                        <Grid Width="{TemplateBinding ActualWidth}" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                        <Grid Width="{TemplateBinding ActualWidth}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                            <ContentPresenter VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

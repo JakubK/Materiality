@@ -15,7 +15,7 @@
                         </Border.Effect>
                         <Grid>
                             <local:Ripple Width="{Binding Path=ActualWidth,RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" RippleColor="{TemplateBinding RippleBrush}"/>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" IsHitTestVisible="False"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
